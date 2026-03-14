@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The Simple Table</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--cream:#faf9f7;--warm:#f5f0e8;--accent:#c8956c;--accent2:#8b5e3c;--text:#2c2c2c;--muted:#888;--border:#e8e2d9}
+  body{font-family:'Georgia',serif;background:var(--cream);color:var(--text);line-height:1.6}
+  a{text-decoration:none;color:inherit}
+
+  /* NAV */
+  nav{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 4rem;border-bottom:1px solid var(--border);background:var(--cream);position:sticky;top:0;z-index:100}
+  .logo{font-size:1.4rem;letter-spacing:.05em;color:var(--accent2)}
+  .nav-links{display:flex;gap:2rem;font-family:'Arial',sans-serif;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .nav-links a:hover{color:var(--accent)}
+
+  /* HERO */
+  .hero{text-align:center;padding:5rem 2rem 3rem;max-width:700px;margin:0 auto}
+  .hero h1{font-size:3rem;font-weight:400;line-height:1.2;margin-bottom:1rem;color:var(--text)}
+  .hero p{font-size:1.1rem;color:var(--muted);font-family:'Arial',sans-serif;font-weight:300}
+  .hero-divider{width:50px;height:2px;background:var(--accent);margin:1.5rem auto}
+
+  /* CATEGORIES */
+  .categories{display:flex;justify-content:center;gap:.6rem;flex-wrap:wrap;padding:1.5rem 2rem;margin-bottom:1rem}
+  .cat-btn{padding:.45rem 1.2rem;border:1px solid var(--border);border-radius:50px;font-family:'Arial',sans-serif;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;background:transparent;color:var(--muted);transition:all .2s}
+  .cat-btn:hover,.cat-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+  /* RECIPE GRID */
+  .section-title{text-align:center;font-size:1.6rem;font-weight:400;margin-bottom:.3rem}
+  .section-sub{text-align:center;color:var(--muted);font-family:'Arial',sans-serif;font-size:.85rem;margin-bottom:2rem}
+  .grid-section{padding:2rem 4rem 4rem}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2rem}
+  .card{background:#fff;border-radius:4px;overflow:hidden;border:1px solid var(--border);cursor:pointer;transition:transform .2s,box-shadow .2s}
+  .card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,.08)}
+  .card-img{width:100%;height:200px;object-fit:cover;background:var(--warm);display:flex;align-items:center;justify-content:center;font-size:3.5rem}
+  .card-body{padding:1.2rem}
+  .card-tag{font-family:'Arial',sans-serif;font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin-bottom:.4rem}
+  .card-title{font-size:1.15rem;font-weight:400;margin-bottom:.4rem;line-height:1.3}
+  .card-meta{font-family:'Arial',sans-serif;font-size:.8rem;color:var(--muted);display:flex;gap:1rem}
+
+  /* MODAL */
+  .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200;align-items:center;justify-content:center;padding:1rem}
+  .overlay.open{display:flex}
+  .modal{background:#fff;max-width:680px;width:100%;max-height:90vh;overflow-y:auto;border-radius:4px;padding:3rem;position:relative}
+  .modal-close{position:absolute;top:1.2rem;right:1.5rem;font-size:1.5rem;cursor:pointer;color:var(--muted);background:none;border:none}
+  .modal-tag{font-family:'Arial',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin-bottom:.5rem}
+  .modal-title{font-size:2rem;font-weight:400;margin-bottom:.5rem}
+  .modal-meta{font-family:'Arial',sans-serif;font-size:.85rem;color:var(--muted);display:flex;gap:1.5rem;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border)}
+  .modal-emoji{font-size:5rem;text-align:center;margin-bottom:1.5rem;padding:1.5rem;background:var(--warm);border-radius:4px}
+  .modal h3{font-size:1rem;text-transform:uppercase;letter-spacing:.08em;font-family:'Arial',sans-serif;margin-bottom:.8rem;margin-top:1.5rem;color:var(--accent2)}
+  .modal ul,.modal ol{padding-left:1.3rem}
+  .modal li{margin-bottom:.4rem;font-size:.95rem;line-height:1.6}
+
+  /* ABOUT */
+  .about{background:var(--warm);padding:4rem;display:flex;align-items:center;gap:3rem;max-width:900px;margin:0 auto 4rem;border-radius:4px}
+  .about-avatar{width:120px;height:120px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-size:3rem;flex-shrink:0}
+  .about h2{font-size:1.6rem;font-weight:400;margin-bottom:.5rem}
+  .about p{color:var(--muted);font-family:'Arial',sans-serif;font-size:.9rem;line-height:1.7}
+
+  /* NEWSLETTER */
+  .newsletter{text-align:center;padding:4rem 2rem;border-top:1px solid var(--border)}
+  .newsletter h2{font-size:1.8rem;font-weight:400;margin-bottom:.5rem}
+  .newsletter p{color:var(--muted);font-family:'Arial',sans-serif;font-size:.9rem;margin-bottom:1.5rem}
+  .newsletter-form{display:flex;gap:.5rem;justify-content:center;max-width:400px;margin:0 auto}
+  .newsletter-form input{flex:1;padding:.7rem 1rem;border:1px solid var(--border);border-radius:2px;font-family:'Arial',sans-serif;font-size:.9rem;background:transparent}
+  .newsletter-form input:focus{outline:none;border-color:var(--accent)}
+  .btn{padding:.7rem 1.5rem;background:var(--accent);color:#fff;border:none;border-radius:2px;font-family:'Arial',sans-serif;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:background .2s}
+  .btn:hover{background:var(--accent2)}
+
+  footer{text-align:center;padding:2rem;font-family:'Arial',sans-serif;font-size:.8rem;color:var(--muted);border-top:1px solid var(--border)}
+
+  .hidden{display:none}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">The Simple Table</div>
+  <div class="nav-links">
+    <a href="#">Recipes</a>
+    <a href="#">About</a>
+    <a href="#">Newsletter</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <h1>Good food, simply made.</h1>
+  <div class="hero-divider"></div>
+  <p>A collection of everyday recipes that celebrate honest ingredients and the joy of cooking from scratch.</p>
+</section>
+
+<div class="categories">
+  <button class="cat-btn active" onclick="filter('all',this)">All</button>
+  <button class="cat-btn" onclick="filter('breakfast',this)">Breakfast</button>
+  <button class="cat-btn" onclick="filter('lunch',this)">Lunch</button>
+  <button class="cat-btn" onclick="filter('dinner',this)">Dinner</button>
+  <button class="cat-btn" onclick="filter('dessert',this)">Desserts</button>
+  <button class="cat-btn" onclick="filter('snack',this)">Snacks</button>
+</div>
+
+<section class="grid-section">
+  <h2 class="section-title">Featured Recipes</h2>
+  <p class="section-sub">Seasonal favorites and everyday staples</p>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section style="padding:0 4rem 4rem">
+  <div class="about">
+    <div class="about-avatar">👩‍🍳</div>
+    <div>
+      <h2>Hi, I'm Clara.</h2>
+      <p>I'm a home cook based in the Pacific Northwest with a deep love for seasonal produce, simple techniques, and recipes that actually work on a Tuesday night. This blog is my kitchen journal — no fluff, just food I love and want to share with you.</p>
+    </div>
+  </div>
+</section>
+
+<section class="newsletter">
+  <h2>New recipes, every week.</h2>
+  <p>Subscribe for seasonal recipes and kitchen notes delivered to your inbox.</p>
+  <div class="newsletter-form">
+    <input type="email" placeholder="your@email.com"/>
+    <button class="btn" onclick="subscribe()">Subscribe</button>
+  </div>
+  <p id="sub-msg" style="color:var(--accent);margin-top:1rem;font-family:Arial,sans-serif;font-size:.9rem;display:none">✓ You're on the list!</p>
+</section>
+
+<footer>© 2026 The Simple Table · Made with love and olive oil</footer>
+
+<!-- MODAL -->
+<div class="overlay" id="overlay" onclick="closeModal(event)">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeModalDirect()">✕</button>
+    <div id="modal-content"></div>
+  </div>
+</div>
+
+<script>
+const recipes = [
+  {id:1,cat:'breakfast',emoji:'🥞',title:'Ricotta Lemon Pancakes',time:'25 min',serves:'2',difficulty:'Easy',desc:'Light, fluffy pancakes with creamy ricotta and bright lemon zest — perfect for a slow morning.',ingredients:['1 cup ricotta cheese','2 eggs, separated','½ cup milk','1 tsp lemon zest','1 tbsp lemon juice','¾ cup flour','1 tsp baking powder','Pinch of salt','Butter for cooking','Maple syrup to serve'],steps:['Whisk ricotta, egg yolks, milk, lemon zest and juice together.','Sift in flour, baking powder and salt. Stir until just combined.','In a separate bowl, beat egg whites to soft peaks. Fold gently into batter.','Heat a non-stick pan over medium-low heat with a little butter.','Cook ¼ cup portions for 3 min per side until golden.','Serve with maple syrup and fresh berries.']},
+  {id:2,cat:'lunch',emoji:'🥗',title:'Roasted Carrot & Feta Salad',time:'35 min',serves:'4',difficulty:'Easy',desc:'Honey-roasted carrots on a bed of peppery greens with creamy feta and a cumin vinaigrette.',ingredients:['500g carrots, peeled and halved','2 tbsp olive oil','1 tbsp honey','100g feta, crumbled','80g arugula','¼ cup pumpkin seeds','For dressing: 3 tbsp olive oil, 1 tbsp red wine vinegar, ½ tsp cumin, salt & pepper'],steps:['Preheat oven to 400°F (200°C).','Toss carrots with olive oil, honey, salt and pepper. Roast 25–30 min until caramelized.','Whisk dressing ingredients together.','Arrange arugula on a platter, top with warm carrots, feta and pumpkin seeds.','Drizzle with dressing and serve immediately.']},
+  {id:3,cat:'dinner',emoji:'🍝',title:'Brown Butter Sage Pasta',time:'20 min',serves:'2',difficulty:'Easy',desc:'A weeknight classic — al dente pasta tossed in nutty brown butter with crispy sage leaves and parmesan.',ingredients:['200g pasta (tagliatelle or spaghetti)','4 tbsp unsalted butter','10 fresh sage leaves','2 garlic cloves, minced','50g parmesan, grated','Salt & black pepper','Lemon juice to finish'],steps:['Cook pasta in well-salted boiling water until al dente. Reserve 1 cup pasta water.','Melt butter in a wide pan over medium heat. Cook until it turns golden and smells nutty, ~4 min.','Add sage leaves and fry 30 seconds until crisp. Remove and set aside.','Add garlic to butter, cook 30 seconds. Add drained pasta and a splash of pasta water.','Toss to coat, adding more water as needed. Stir in parmesan.','Season generously, finish with lemon juice. Top with crispy sage.']},
+  {id:4,cat:'dessert',emoji:'🍮',title:'Vanilla Bean Panna Cotta',time:'15 min + set',serves:'4',difficulty:'Medium',desc:'Silky, just-barely-set panna cotta with real vanilla. Elegant, simple, and made the day before.',ingredients:['2 cups heavy cream','¼ cup whole milk','3 tbsp sugar','1 vanilla bean, split','2 tsp powdered gelatin','2 tbsp cold water','Berry compote to serve'],steps:['Sprinkle gelatin over cold water. Let bloom 5 minutes.','Heat cream, milk, sugar and vanilla bean in a saucepan until just simmering. Remove from heat.','Scrape vanilla seeds into cream, remove pod. Stir in bloomed gelatin until dissolved.','Strain through a fine sieve into four ramekins or glasses.','Refrigerate at least 4 hours or overnight until set.','Serve in ramekins or unmolded, with fresh berry compote.']},
+  {id:5,cat:'snack',emoji:'🧀',title:'Whipped Ricotta Toast',time:'10 min',serves:'2',difficulty:'Easy',desc:'Thick sourdough piled with airy whipped ricotta, a drizzle of honey and flaky salt. Done in minutes.',ingredients:['2 thick slices sourdough','¾ cup ricotta','2 tbsp olive oil','Zest of ½ lemon','Honey for drizzling','Flaky sea salt','Fresh thyme (optional)'],steps:['Toast sourdough until golden and crisp.','Blend ricotta, olive oil and lemon zest with a fork or hand mixer until fluffy.','Spread generously onto toast.','Drizzle with honey, sprinkle flaky salt and fresh thyme if using.','Serve immediately.']},
+  {id:6,cat:'dinner',emoji:'🍲',title:'White Bean & Tomato Stew',time:'40 min',serves:'4',difficulty:'Easy',desc:'A hearty, warming stew of cannellini beans simmered in crushed tomatoes with rosemary and garlic.',ingredients:['2 cans cannellini beans, drained','1 can (400g) crushed tomatoes','1 onion, diced','4 garlic cloves, sliced','2 sprigs rosemary','3 tbsp olive oil','1 cup vegetable stock','Salt, pepper, chili flakes','Crusty bread to serve'],steps:['Heat olive oil in a pot. Sauté onion 5 min until soft.','Add garlic and rosemary, cook 2 min.','Add tomatoes, stock and chili flakes. Simmer 10 min.','Add beans and simmer 15 more minutes. Season well.','Remove rosemary sprigs. Drizzle with olive oil.','Serve with crusty bread for dipping.']},
+  {id:7,cat:'breakfast',emoji:'🥣',title:'Miso Oat Porridge',time:'15 min',serves:'2',difficulty:'Easy',desc:'Savoury-meets-sweet oat porridge with white miso, a soft egg and sesame. A surprisingly wonderful breakfast.',ingredients:['1 cup rolled oats','2 cups water','1 cup oat milk','1 tbsp white miso paste','2 eggs','1 tbsp sesame oil','1 tbsp soy sauce','Sesame seeds, scallions to serve'],steps:['Bring water and oat milk to a simmer. Add oats and cook 8–10 min, stirring.','Stir in miso paste until fully dissolved. Add more oat milk if needed.','Soft-boil eggs for 6 min, then peel and halve.','Divide porridge into bowls. Top with halved egg, a drizzle of sesame oil and soy.','Garnish with sesame seeds and sliced scallions.']},
+  {id:8,cat:'dessert',emoji:'🍪',title:'Brown Butter Chocolate Chip Cookies',time:'30 min',serves:'18',difficulty:'Easy',desc:'The only chocolate chip cookie recipe you need — crispy edges, chewy centres, and deep buttery flavour.',ingredients:['225g unsalted butter','200g brown sugar','100g white sugar','2 eggs + 1 yolk','2 tsp vanilla extract','280g all-purpose flour','1 tsp baking soda','1 tsp salt','300g dark chocolate chips'],steps:['Brown butter in a saucepan until golden and nutty. Cool 15 minutes.','Whisk butter and both sugars until combined. Add eggs, yolk and vanilla.','Fold in flour, baking soda and salt. Stir in chocolate chips.','Chill dough 30 min (or overnight for deeper flavour).','Preheat oven to 375°F (190°C). Scoop balls onto lined trays.','Bake 11–13 min until edges are set but centres look underdone.','Cool on tray 5 min before serving.']}
+];
+
+function renderGrid(list){
+  const g=document.getElementById('grid');
+  g.innerHTML=list.map(r=>`
+    <div class="card" onclick="openModal(${r.id})">
+      <div class="card-img">${r.emoji}</div>
+      <div class="card-body">
+        <div class="card-tag">${r.cat}</div>
+        <div class="card-title">${r.title}</div>
+        <div class="card-meta"><span>⏱ ${r.time}</span><span>👤 Serves ${r.serves}</span><span>⭐ ${r.difficulty}</span></div>
+      </div>
+    </div>`).join('');
+}
+
+function filter(cat,btn){
+  document.querySelectorAll('.cat-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderGrid(cat==='all'?recipes:recipes.filter(r=>r.cat===cat));
+}
+
+function openModal(id){
+  const r=recipes.find(x=>x.id===id);
+  document.getElementById('modal-content').innerHTML=`
+    <div class="modal-tag">${r.cat}</div>
+    <div class="modal-title">${r.title}</div>
+    <div class="modal-meta"><span>⏱ ${r.time}</span><span>👤 Serves ${r.serves}</span><span>⭐ ${r.difficulty}</span></div>
+    <div class="modal-emoji">${r.emoji}</div>
+    <p style="color:var(--muted);font-family:Arial,sans-serif;font-size:.95rem;line-height:1.7;margin-bottom:1rem">${r.desc}</p>
+    <h3>Ingredients</h3>
+    <ul>${r.ingredients.map(i=>`<li>${i}</li>`).join('')}</ul>
+    <h3>Method</h3>
+    <ol>${r.steps.map(s=>`<li>${s}</li>`).join('')}</ol>
+  `;
+  document.getElementById('overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+
+function closeModal(e){if(e.target===document.getElementById('overlay'))closeModalDirect()}
+function closeModalDirect(){
+  document.getElementById('overlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+function subscribe(){
+  document.getElementById('sub-msg').style.display='block';
+}
+
+renderGrid(recipes);
+</script>
+</body>
+</html>
