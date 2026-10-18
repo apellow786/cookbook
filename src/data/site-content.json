@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-18T15:09:21.417Z",
+  "generatedAt": "2026-10-18T15:14:08.043Z",
   "categories": [
     {
       "name": "Breakfast & Breads",
@@ -235,13 +235,13 @@
         "amount": 7,
         "unit": "servings"
       },
-      "image": "/images/recipes/family-breakfast-hash-29505ec9a3.jpg",
-      "imageAlt": "A skillet of breakfast hash",
+      "image": "/images/recipes/recipe-706530b2-93c4-4917-b84e-f0006be6242b-70027bb248.png",
+      "imageAlt": "Corned beef hash with potatoes and onions topped with a fried egg on a gray plate",
       "photoCredit": {
-        "creator": "WPKitchen",
-        "url": "https://wordpress.org/photos/photo/9446a2bb16/",
-        "license": "CC0 1.0",
-        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        "creator": "",
+        "url": "https://pixabay.com/images/download/x-1330575_1920.jpg",
+        "license": "",
+        "licenseUrl": ""
       },
       "ingredientsMarkdown": "- 2 Tbs vegetable oil\n- 2 onions, chopped\n- 4 potatoes, peeled and chopped\n- 1 lb cooked corned beef, cut into chunks\n- 1 Tbs ground black pepper\n- 1/4 cup heavy cream\n- 1 Tbs chopped fresh flat-leaf parsley (opt)\n- 5 Tbs cider vinegar",
       "ingredientsHtml": "<ul>\n<li>2 Tbs vegetable oil</li>\n<li>2 onions, chopped</li>\n<li>4 potatoes, peeled and chopped</li>\n<li>1 lb cooked corned beef, cut into chunks</li>\n<li>1 Tbs ground black pepper</li>\n<li>1/4 cup heavy cream</li>\n<li>1 Tbs chopped fresh flat-leaf parsley (opt)</li>\n<li>5 Tbs cider vinegar</li>\n</ul>\n",
