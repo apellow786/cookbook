@@ -13,6 +13,13 @@ const { title = "Alexander's Cookbook", description = 'A personal collection of 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="theme-color" content="#f7efe2" />
+    <meta name="application-name" content="Alexander's Cookbook" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Cookbook" />
+    <link rel="manifest" href={url('/manifest.webmanifest')} />
+    <link rel="icon" type="image/png" sizes="32x32" href={url('/icons/favicon-32.png')} />
+    <link rel="icon" type="image/png" sizes="192x192" href={url('/icons/cookbook-192.png')} />
+    <link rel="apple-touch-icon" sizes="180x180" href={url('/icons/apple-touch-icon.png')} />
     <title>{title === "Alexander's Cookbook" ? title : `${title} | Alexander's Cookbook`}</title>
     <script is:inline>
       (() => {

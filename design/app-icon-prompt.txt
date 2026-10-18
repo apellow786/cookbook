@@ -1,0 +1,5 @@
+Tool: built-in image_gen
+Edit target: user-provided portrait (codex-clipboard-19d7d815-feb8-4274-b844-24f1530e07f4.png)
+Output: public/icons/cookbook-chef-original.png
+
+Use case: identity-preserve. Edit target: the attached black-and-white portrait. Create a square photographic image intended for a personal cookbook web app icon. Add a realistic white chef's toque on the man's head and a generous bunch of fresh broccoli resting naturally in his open palm on the viewer's right. Preserve the man's identity, face, sunglasses, expression, shirt, and original hand/arm pose faithfully. Keep the photographic black-and-white appearance, with only the broccoli in natural rich green. Expand framing upward as necessary to include the entire chef's hat, and compose tightly enough that the face, hat and broccoli read well in a small square icon, keeping all three comfortably inside the frame. Preserve the simple soft gray background. No text, letters, border, logo, or watermark.
