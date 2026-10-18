@@ -1,0 +1,48 @@
+---
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import { url } from '../lib/site';
+interface Props { title?: string; description?: string; active?: 'home'|'search'|'favorites'|'tips'; showBack?: boolean; }
+const { title = "Alexander's Cookbook", description = 'A personal collection of favorite recipes.', active, showBack = false } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#f7efe2" />
+    <title>{title === "Alexander's Cookbook" ? title : `${title} | Alexander's Cookbook`}</title>
+    <script is:inline>
+      (() => {
+        const theme = localStorage.getItem('cookbook-theme') || 'classic';
+        const size = localStorage.getItem('cookbook-text-size') || 'standard';
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.dataset.textSize = size;
+      })();
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <div class="header-inner">
+        {showBack ? <button class="back-button" type="button" data-back aria-label="Return to previous page">‹</button> : <a class="brand" href={url('/')} aria-label="Alexander's Cookbook home"><span class="book-mark" aria-hidden="true">▥</span><span>Alexander’s Cookbook</span></a>}
+        {showBack && <a class="compact-brand" href={url('/')}>Alexander’s Cookbook</a>}
+        <nav class="desktop-nav" aria-label="Primary">
+          <a class:list={{active:active==='home'}} href={url('/')}>Home</a>
+          <a class:list={{active:active==='search'}} href={url('/search/')}>Search</a>
+          <a class:list={{active:active==='favorites'}} href={url('/favorites/')}>Favorites</a>
+          <a class:list={{active:active==='tips'}} href={url('/tips/')}>Cooking Tips</a>
+        </nav>
+        <slot name="header-action" />
+      </div>
+    </header>
+    <main id="main-content"><slot /></main>
+    <Nav active={active} />
+    <script is:inline define:vars={{ homeUrl: url('/') }}>
+      document.querySelectorAll('[data-back]').forEach((button) => button.addEventListener('click', () => {
+        if (history.length > 1) history.back(); else location.href = homeUrl;
+      }));
+    </script>
+  </body>
+</html>

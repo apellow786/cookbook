@@ -1,0 +1,38 @@
+<script>
+  const FAVORITES_KEY = 'cookbook-favorites';
+  const favorites = () => new Set(JSON.parse(localStorage.getItem(FAVORITES_KEY) || '[]'));
+  function updateFavoriteButtons(root = document) {
+    const saved = favorites();
+    root.querySelectorAll('[data-favorite]').forEach((button) => {
+      const selected = saved.has(button.dataset.favorite);
+      button.textContent = selected ? '♥' : '♡';
+      button.setAttribute('aria-pressed', String(selected));
+      button.setAttribute('aria-label', `${selected ? 'Remove' : 'Add'} recipe ${selected ? 'from' : 'to'} favorites`);
+    });
+  }
+  document.addEventListener('click', (event) => {
+    const favorite = event.target.closest('[data-favorite]');
+    if (favorite) {
+      const saved = favorites();
+      saved.has(favorite.dataset.favorite) ? saved.delete(favorite.dataset.favorite) : saved.add(favorite.dataset.favorite);
+      localStorage.setItem(FAVORITES_KEY, JSON.stringify([...saved]));
+      updateFavoriteButtons();
+      document.dispatchEvent(new CustomEvent('cookbook:favorites-changed'));
+    }
+    const more = event.target.closest('[data-more]');
+    if (more) {
+      const description = more.parentElement.querySelector('[data-description]');
+      const expanded = description.classList.toggle('expanded');
+      more.textContent = expanded ? 'Less' : 'More';
+    }
+  });
+  function revealMoreButtons(root = document) {
+    root.querySelectorAll('[data-description]').forEach((description) => {
+      const button = description.parentElement.querySelector('[data-more]');
+      if (button) button.hidden = description.scrollHeight <= description.clientHeight + 1;
+    });
+  }
+  updateFavoriteButtons(); revealMoreButtons();
+  document.addEventListener('cookbook:rows-rendered', () => { updateFavoriteButtons(); requestAnimationFrame(() => revealMoreButtons()); });
+  window.addEventListener('pageshow', () => updateFavoriteButtons());
+</script>

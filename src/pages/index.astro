@@ -1,0 +1,41 @@
+---
+import Base from '../layouts/Base.astro';
+import { siteContent, url, categoryUrl } from '../lib/site';
+---
+<Base active="home">
+  <button slot="header-action" class="appearance-button" type="button" data-appearance aria-label="Open appearance settings">Aa</button>
+  <div class="page-shell home-page">
+    <form class="home-search" action={url('/search/')} method="get">
+      <span aria-hidden="true">⌕</span><input name="q" type="search" placeholder="Search names, ingredients, cuisines" aria-label="Search recipes" />
+    </form>
+    <a class="favorites-link" href={url('/favorites/')}><span aria-hidden="true">♡</span><strong>View Favorites</strong><span aria-hidden="true">›</span></a>
+    <section aria-labelledby="categories-heading">
+      <h1 id="categories-heading">Browse by category</h1>
+      <div class="category-grid">
+        {siteContent.categories.map((category) => (
+          <a class="category-card" href={categoryUrl(category.slug)}>
+            <div class:list={['category-photo', `category-${category.slug}`]}>{category.representative && <img src={url(category.representative)} alt="" loading="lazy" />}</div>
+            <div><h2>{category.displayName}</h2><p>{category.count} recipes</p></div>
+          </a>
+        ))}
+      </div>
+    </section>
+  </div>
+  <dialog class="appearance-dialog" data-appearance-dialog>
+    <form method="dialog"><button class="dialog-close" aria-label="Close appearance settings">×</button></form>
+    <h2>Appearance</h2>
+    <label>Theme<select data-theme-select><option value="classic">Classic Cookbook</option><option value="rustic">Rustic Kitchen</option><option value="modern">Fresh & Modern</option><option value="dark">Dark Kitchen</option></select></label>
+    <fieldset><legend>Text size</legend><div class="size-options"><button type="button" data-size="small">Small</button><button type="button" data-size="standard">Standard</button><button type="button" data-size="large">Large</button></div></fieldset>
+  </dialog>
+  <script>
+    const dialog = document.querySelector('[data-appearance-dialog]');
+    const themeSelect = document.querySelector('[data-theme-select]');
+    const refresh = () => {
+      themeSelect.value = document.documentElement.dataset.theme || 'classic';
+      document.querySelectorAll('[data-size]').forEach((button) => button.classList.toggle('selected', button.dataset.size === (document.documentElement.dataset.textSize || 'standard')));
+    };
+    document.querySelector('[data-appearance]').addEventListener('click', () => { refresh(); dialog.showModal(); });
+    themeSelect.addEventListener('change', () => { document.documentElement.dataset.theme = themeSelect.value; localStorage.setItem('cookbook-theme', themeSelect.value); });
+    document.querySelectorAll('[data-size]').forEach((button) => button.addEventListener('click', () => { document.documentElement.dataset.textSize = button.dataset.size; localStorage.setItem('cookbook-text-size', button.dataset.size); refresh(); }));
+  </script>
+</Base>

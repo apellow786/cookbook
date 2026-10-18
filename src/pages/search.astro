@@ -1,0 +1,55 @@
+---
+import Base from '../layouts/Base.astro';
+import RecipeListScript from '../components/RecipeListScript.astro';
+import { siteContent } from '../lib/site';
+const searchData = siteContent.recipes.map(({id,slug,title,categorySlug,description,cuisines,searchIngredients,image}) => ({id,slug,title,categorySlug,description,cuisines,searchIngredients,image}));
+---
+<Base title="Search" active="search">
+  <div class="page-shell search-page">
+    <header class="page-title"><h1>Search</h1></header>
+    <label class="search-field"><span aria-hidden="true">⌕</span><input type="search" data-search placeholder="Search names, ingredients, cuisines" autocomplete="off" /></label>
+    <label class="cuisine-filter">Cuisine<select data-cuisine><option value="">All cuisines</option>{[...new Set(siteContent.recipes.flatMap((r) => r.cuisines))].sort().map((c) => <option value={c}>{c}</option>)}</select></label>
+    <div class="results-heading"><h2>Best matches</h2><span data-count></span></div>
+    <div class="recipe-list responsive-list" data-results></div>
+    <p class="empty-state" data-empty>Start typing to find a recipe.</p>
+  </div>
+  <script id="search-data" type="application/json" set:html={JSON.stringify(searchData)}></script>
+  <RecipeListScript />
+  <script>
+    import Fuse from 'fuse.js';
+    const data = JSON.parse(document.getElementById('search-data').textContent);
+    const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+    const fuse = new Fuse(data, { threshold:.28, ignoreLocation:true, includeScore:true, minMatchCharLength:3, keys:[{name:'title',weight:.55},{name:'cuisines',weight:.25},{name:'searchIngredients',weight:.2}] });
+    const input = document.querySelector('[data-search]'); const cuisine = document.querySelector('[data-cuisine]'); const results = document.querySelector('[data-results]'); const empty = document.querySelector('[data-empty]'); const count = document.querySelector('[data-count]');
+    const escape = (s='') => s.replace(/[&<>'"]/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+    function row(recipe) {
+      const match = recipe.ingredientTerms?.length ? `<small class="match-reason">Matches: ${escape(recipe.ingredientTerms.join(', '))}</small>` : '';
+      const tags = recipe.cuisines.map((c) => `<span>${escape(c)}</span>`).join('');
+      const image = recipe.image ? `<img src="${base}${recipe.image}" alt="" loading="lazy">` : '';
+      return `<article class="recipe-row" data-recipe-id="${escape(recipe.id)}"><a class="recipe-thumb category-${escape(recipe.categorySlug)}" href="${base}/recipes/${escape(recipe.slug)}/" aria-label="Open ${escape(recipe.title)}">${image}</a><div class="recipe-row-copy"><h3><a href="${base}/recipes/${escape(recipe.slug)}/">${escape(recipe.title)}</a></h3><div class="cuisine-list">${tags}</div><p class="clamped" data-description>${escape(recipe.description)}</p><button class="more-button" type="button" data-more hidden>More</button>${match}</div><button class="favorite-button" type="button" data-favorite="${escape(recipe.id)}" aria-pressed="false">♡</button></article>`;
+    }
+    function render() {
+      const query = input.value.trim(); const filter = cuisine.value;
+      let found = [];
+      if (query) {
+        const terms = [...new Set(query.toLowerCase().split(/\s+/).filter((term) => term.length > 1))];
+        const combined = new Map();
+        for (const term of terms) {
+          for (const result of fuse.search(term)) {
+            const current = combined.get(result.item.id) || {...result.item, hits:0, score:0, ingredientTerms:[]};
+            current.hits += 1; current.score += result.score || 0;
+            if (result.item.searchIngredients.toLowerCase().includes(term)) current.ingredientTerms.push(term);
+            combined.set(result.item.id, current);
+          }
+        }
+        found = [...combined.values()].sort((a,b) => b.hits-a.hits || a.score-b.score || a.title.localeCompare(b.title));
+      }
+      if (filter) found = found.filter((r) => r.cuisines.includes(filter));
+      results.innerHTML = found.map(row).join(''); count.textContent = found.length ? `${found.length} recipe${found.length===1?'':'s'}` : '';
+      empty.hidden = found.length > 0; empty.textContent = query || filter ? 'No recipes matched your search.' : 'Start typing to find a recipe.';
+      document.dispatchEvent(new CustomEvent('cookbook:rows-rendered'));
+      const url = new URL(location.href); query ? url.searchParams.set('q',query) : url.searchParams.delete('q'); filter ? url.searchParams.set('cuisine',filter) : url.searchParams.delete('cuisine'); history.replaceState({},'',url);
+    }
+    const params = new URLSearchParams(location.search); input.value = params.get('q') || ''; cuisine.value = params.get('cuisine') || ''; input.addEventListener('input',render); cuisine.addEventListener('change',render); render();
+  </script>
+</Base>

@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro';
+import RecipeListScript from '../components/RecipeListScript.astro';
+import { siteContent } from '../lib/site';
+const data = { categories: siteContent.categories, recipes: siteContent.recipes.map(({id,slug,title,categorySlug,categoryDisplay,description,cuisines,image}) => ({id,slug,title,categorySlug,categoryDisplay,description,cuisines,image})) };
+---
+<Base title="Favorites" active="favorites">
+  <div class="page-shell list-page"><header class="page-title"><h1>Favorites</h1></header><div data-favorites-list></div><p class="empty-state" data-empty>Your favorite recipes will appear here.</p></div>
+  <script id="favorites-data" type="application/json" set:html={JSON.stringify(data)}></script>
+  <RecipeListScript />
+  <script>
+    const data = JSON.parse(document.getElementById('favorites-data').textContent); const root = document.querySelector('[data-favorites-list]'); const empty = document.querySelector('[data-empty]'); const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+    const escape = (s='') => s.replace(/[&<>'"]/g,(c)=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+    function row(r){const tags=r.cuisines.map(c=>`<span>${escape(c)}</span>`).join('');const image=r.image?`<img src="${base}${r.image}" alt="" loading="lazy">`:'';return `<article class="recipe-row" data-recipe-id="${escape(r.id)}"><a class="recipe-thumb category-${escape(r.categorySlug)}" href="${base}/recipes/${escape(r.slug)}/">${image}</a><div class="recipe-row-copy"><h3><a href="${base}/recipes/${escape(r.slug)}/">${escape(r.title)}</a></h3><div class="cuisine-list">${tags}</div><p class="clamped" data-description>${escape(r.description)}</p><button class="more-button" type="button" data-more hidden>More</button></div><button class="favorite-button" type="button" data-favorite="${escape(r.id)}" aria-pressed="true">♥</button></article>`}
+    function render(){const saved=new Set(JSON.parse(localStorage.getItem('cookbook-favorites')||'[]'));const selected=data.recipes.filter(r=>saved.has(r.id));root.innerHTML=data.categories.map(c=>{const recipes=selected.filter(r=>r.categorySlug===c.slug).sort((a,b)=>a.title.localeCompare(b.title));return recipes.length?`<section class="favorite-group"><h2>${escape(c.displayName)} <span>${recipes.length}</span></h2><div class="recipe-list responsive-list">${recipes.map(row).join('')}</div></section>`:''}).join('');empty.hidden=selected.length>0;document.dispatchEvent(new CustomEvent('cookbook:rows-rendered'))}
+    render();document.addEventListener('cookbook:favorites-changed',render);window.addEventListener('pageshow',render);
+  </script>
+</Base>

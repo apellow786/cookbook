@@ -1,0 +1,14 @@
+---
+import Base from '../../layouts/Base.astro';
+import { siteContent, tipUrl } from '../../lib/site';
+const tips = [...siteContent.tips].sort((a,b) => a.title.localeCompare(b.title));
+---
+<Base title="Cooking Tips" active="tips">
+  <div class="page-shell tips-page">
+    <header class="page-title"><h1>Cooking Tips</h1><p>{tips.length} tips</p></header>
+    <div class="tips-list">{tips.map((tip) => <article><h2><a href={tipUrl(tip.slug)}>{tip.title}</a></h2><p class="clamped" data-description>{tip.summary}</p><button class="more-button" type="button" data-more hidden>More</button></article>)}</div>
+  </div>
+  <script>
+    function refresh(){document.querySelectorAll('[data-description]').forEach((p)=>{const b=p.parentElement.querySelector('[data-more]');b.hidden=p.scrollHeight<=p.clientHeight+1})}refresh();document.addEventListener('click',(e)=>{const b=e.target.closest('[data-more]');if(!b)return;const p=b.parentElement.querySelector('[data-description]');const open=p.classList.toggle('expanded');b.textContent=open?'Less':'More'});
+  </script>
+</Base>

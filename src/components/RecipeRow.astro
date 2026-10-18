@@ -1,0 +1,17 @@
+---
+import { recipeUrl, url } from '../lib/site';
+const { recipe, showMatch = false } = Astro.props;
+---
+<article class="recipe-row" data-recipe-id={recipe.id}>
+  <a class:list={['recipe-thumb', `category-${recipe.categorySlug}`]} href={recipeUrl(recipe.slug)} aria-label={`Open ${recipe.title}`}>
+    {recipe.image && <img src={url(recipe.image)} alt="" loading="lazy" />}
+  </a>
+  <div class="recipe-row-copy">
+    <h3><a href={recipeUrl(recipe.slug)}>{recipe.title}</a></h3>
+    <div class="cuisine-list">{recipe.cuisines.map((cuisine) => <span>{cuisine}</span>)}</div>
+    <p class="clamped" data-description>{recipe.description}</p>
+    {recipe.description && <button class="more-button" type="button" data-more hidden>More</button>}
+    {showMatch && <small class="match-reason" data-match-reason></small>}
+  </div>
+  <button class="favorite-button" type="button" data-favorite={recipe.id} aria-label={`Add ${recipe.title} to favorites`} aria-pressed="false">♡</button>
+</article>

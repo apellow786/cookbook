@@ -1,0 +1,23 @@
+---
+import Base from '../../layouts/Base.astro';
+import RecipeRow from '../../components/RecipeRow.astro';
+import RecipeListScript from '../../components/RecipeListScript.astro';
+import { siteContent } from '../../lib/site';
+export function getStaticPaths() { return siteContent.categories.map((category) => ({ params: { slug: category.slug }, props: { category } })); }
+const { category } = Astro.props;
+const recipes = siteContent.recipes.filter((recipe) => recipe.categorySlug === category.slug).sort((a,b) => a.title.localeCompare(b.title));
+---
+<Base title={category.displayName} showBack>
+  <div class="page-shell list-page">
+    <header class="page-title"><h1>{category.displayName}</h1><p>{category.count} recipes</p></header>
+    <div class="recipe-list responsive-list" data-sort-favorites>{recipes.map((recipe) => <RecipeRow recipe={recipe} />)}</div>
+  </div>
+  <RecipeListScript />
+  <script>
+    function sortFavoriteRows() {
+      const saved = new Set(JSON.parse(localStorage.getItem('cookbook-favorites') || '[]'));
+      document.querySelectorAll('[data-sort-favorites]').forEach((list) => [...list.children].sort((a,b) => Number(saved.has(b.dataset.recipeId)) - Number(saved.has(a.dataset.recipeId)) || a.querySelector('h3').textContent.localeCompare(b.querySelector('h3').textContent)).forEach((row) => list.append(row)));
+    }
+    sortFavoriteRows(); document.addEventListener('cookbook:favorites-changed', sortFavoriteRows); window.addEventListener('pageshow', sortFavoriteRows);
+  </script>
+</Base>

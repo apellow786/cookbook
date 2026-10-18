@@ -1,0 +1,9 @@
+---
+import Base from '../../layouts/Base.astro';
+import { siteContent } from '../../lib/site';
+export function getStaticPaths(){return siteContent.tips.map((tip)=>({params:{slug:tip.slug},props:{tip}}))}
+const { tip } = Astro.props;
+---
+<Base title={tip.title} description={tip.summary} active="tips" showBack>
+  <article class="reading-page tip-detail"><header><h1>{tip.title}</h1><p class="lead">{tip.summary}</p></header>{tip.sections.map((section)=><section><h2>{section.heading}</h2><div class="prose" set:html={section.html}></div></section>)}</article>
+</Base>

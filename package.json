@@ -1,0 +1,20 @@
+{
+  "name": "alexanders-cookbook",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "sync": "node scripts/import-content.mjs",
+    "validate": "node scripts/validate-content.mjs",
+    "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev",
+    "build": "npm run validate && ASTRO_TELEMETRY_DISABLED=1 astro build",
+    "preview": "ASTRO_TELEMETRY_DISABLED=1 astro preview"
+  },
+  "dependencies": {
+    "astro": "^7.4.0",
+    "fuse.js": "^7.1.0",
+    "marked": "^16.3.0",
+    "typescript": "^5.9.2",
+    "yaml": "^2.8.1"
+  }
+}
