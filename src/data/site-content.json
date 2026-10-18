@@ -1,61 +1,61 @@
 {
-  "generatedAt": "2026-10-18T02:43:51.856Z",
+  "generatedAt": "2026-10-18T03:30:02.622Z",
   "categories": [
     {
       "name": "Breakfast & Breads",
       "displayName": "Breakfast & Breads",
       "slug": "breakfast-and-breads",
       "count": 25,
-      "representative": null
+      "representative": "/images/recipes/recipe-2ecdc0bc-cdb8-4d8b-95e2-261729bb5c55-641a176566.jpg"
     },
     {
       "name": "Appetizers",
       "displayName": "Appetizers",
       "slug": "appetizers",
       "count": 20,
-      "representative": null
+      "representative": "/images/recipes/recipe-33a8bf22-c186-47e3-99d8-be6a5b276c96-06d96709a9.jpg"
     },
     {
       "name": "Salads & Dressings",
       "displayName": "Salads",
       "slug": "salads",
       "count": 45,
-      "representative": null
+      "representative": "/images/recipes/recipe-f5708103-30dc-4271-8268-03174e1ef38f-858d001e36.jpg"
     },
     {
       "name": "Soups & Stews",
       "displayName": "Soups & Stews",
       "slug": "soups-and-stews",
       "count": 15,
-      "representative": null
+      "representative": "/images/recipes/recipe-eb15b48f-04a6-41e1-b7fb-809e1d47c578-19e2e7628d.jpg"
     },
     {
       "name": "Main Dishes",
       "displayName": "Main Dishes",
       "slug": "main-dishes",
       "count": 117,
-      "representative": null
+      "representative": "/images/recipes/recipe-f5490937-ea7e-4a7d-b4b3-1afd94a8407c-6e7ca9ba00.jpg"
     },
     {
       "name": "Side Dishes",
       "displayName": "Side Dishes",
       "slug": "side-dishes",
       "count": 44,
-      "representative": null
+      "representative": "/images/recipes/recipe-26525e31-fd44-4c48-929d-698774ea4724-82f08fb68a.jpg"
     },
     {
       "name": "Sauces & Seasonings",
       "displayName": "Sauces & Seasonings",
       "slug": "sauces-and-seasonings",
       "count": 65,
-      "representative": null
+      "representative": "/images/recipes/recipe-e95b9695-0cff-4aa9-833c-77a585283ce0-6eddf8f3e5.jpg"
     },
     {
       "name": "Desserts",
       "displayName": "Desserts",
       "slug": "desserts",
       "count": 58,
-      "representative": "/images/recipes/german-chocolate-pecan-pound-cake.png"
+      "representative": "/images/recipes/recipe-15dfa93c-a45a-4d87-a6de-cad146931cdb-ff3e0b3866.png"
     }
   ],
   "recipes": [
@@ -350,7 +350,13 @@
         "amount": 14,
         "unit": "pancakes"
       },
-      "image": null,
+      "image": "/images/recipes/recipe-2ecdc0bc-cdb8-4d8b-95e2-261729bb5c55-641a176566.jpg",
+      "imageAlt": "A stack of light golden pancakes on a plate",
+      "photoCredit": {
+        "creator": "Kim Streicher",
+        "url": "https://unsplash.com/photos/stack-of-pancakes-on-plate-tKKe3aDvncE",
+        "license": "Unsplash License"
+      },
       "ingredientsMarkdown": "- 2 cups buttermilk\n- 1 cup white flour\n- 1 cup whole flour\n- 2 Tbs brown sugar\n- 2 tsp baking powder\n- 1/2 tsp baking soda\n- 1/2 tsp salt\n- 1 large egg\n- 3 Tbs melted butter",
       "ingredientsHtml": "<ul>\n<li>2 cups buttermilk</li>\n<li>1 cup white flour</li>\n<li>1 cup whole flour</li>\n<li>2 Tbs brown sugar</li>\n<li>2 tsp baking powder</li>\n<li>1/2 tsp baking soda</li>\n<li>1/2 tsp salt</li>\n<li>1 large egg</li>\n<li>3 Tbs melted butter</li>\n</ul>\n",
       "instructionsHtml": "<ol>\n<li>Whisk flour, sugar, baking powder, baking soda, and salt in a bowl to combine.</li>\n<li>Whisk egg and butter into milk until combined.</li>\n<li>Make a well in the center of the dry ingredients in the bowl; pour in the milk mixture and whisk very gently until just combined.</li>\n<li>Do not overmix!</li>\n<li>Heat skillet or non-stick pan on medium heat.</li>\n<li>Scoop 1/4 cup of pancake batter and &quot;plop&quot; it into the skillet.</li>\n<li>The batter will be thick so spread it out into a circle.</li>\n<li>Cook until bubbles form in the batter and the sides begin to darken.</li>\n<li>Flip and cook until edges are no longer moist.</li>\n</ol>\n",
@@ -1025,7 +1031,13 @@
         "amount": 9,
         "unit": "servings"
       },
-      "image": null,
+      "image": "/images/recipes/recipe-33a8bf22-c186-47e3-99d8-be6a5b276c96-06d96709a9.jpg",
+      "imageAlt": "Fresh guacamole in a stone bowl beside tortilla chips",
+      "photoCredit": {
+        "creator": "Zoshua Colah",
+        "url": "https://unsplash.com/photos/a-bowl-of-guacamole-next-to-a-bowl-of-tortilla-chips-iiMIegrG3Ag",
+        "license": "Unsplash License"
+      },
       "ingredientsMarkdown": "- 3 Haas avocados, halved, seeded and peeled\n- 1 lime, juiced\n- 1/2 tsp kosher salt\n- 1/2 tsp ground cumin\n- 1/2 tsp cayenne\n- 1/2 medium onion, diced\n- 2 Roma tomatoes, seeded and diced\n- 1 Tbs chopped cilantro\n- 1 clove garlic, minced",
       "ingredientsHtml": "<ul>\n<li>3 Haas avocados, halved, seeded and peeled</li>\n<li>1 lime, juiced</li>\n<li>1/2 tsp kosher salt</li>\n<li>1/2 tsp ground cumin</li>\n<li>1/2 tsp cayenne</li>\n<li>1/2 medium onion, diced</li>\n<li>2 Roma tomatoes, seeded and diced</li>\n<li>1 Tbs chopped cilantro</li>\n<li>1 clove garlic, minced</li>\n</ul>\n",
       "instructionsHtml": "<ol>\n<li>In a large bowl place the scooped avocado pulp and lime juice, toss to coat.</li>\n<li>Drain, and reserve the lime juice, after all of the avocados have been coated.</li>\n<li>Using a potato masher add the salt, cumin, and cayenne and mash.</li>\n<li>Then, fold in the onions, tomatoes, cilantro, and garlic.</li>\n<li>Add 1 tablespoon of the reserved lime juice.</li>\n<li>Let sit at room temperature for 1 hour and then serve.</li>\n</ol>\n",
@@ -1775,7 +1787,13 @@
         "amount": 7,
         "unit": "servings"
       },
-      "image": null,
+      "image": "/images/recipes/recipe-f5708103-30dc-4271-8268-03174e1ef38f-858d001e36.jpg",
+      "imageAlt": "Greek salad with feta, tomato, cucumber, onion, olives, and green pepper",
+      "photoCredit": {
+        "creator": "william wallace",
+        "url": "https://unsplash.com/photos/greek-salad-with-feta-cheese-tomatoes-and-onions-Dk4RNTHXlAA",
+        "license": "Unsplash License"
+      },
       "ingredientsMarkdown": "- 1 head of Romaine lettuce, torn into bite-sized pieces\n- 3/4 pound tomatoes, seeded, diced (about 2 cups)\n- 2 cups diced seeded peeled cucumber (from about 1 large)\n- 1 cup diced red bell pepper (from about 1 large)\n- 1/4 cup pitted kalamata olives or other brine-cured black olives, halved\n- 1/4 cup diced red onion\n- 1/4 cup crumbled feta cheese (about 2 ounces)\n- 3 Tbs chopped fresh Italian parsley\n- 1/2 cup extra-virgin olive oil\n- 1/4 cup red wine vinegar\n- 1 tsp dried oregano\n- 1/2 tsp salt\n- 1/2 tsp ground pepper",
       "ingredientsHtml": "<ul>\n<li>1 head of Romaine lettuce, torn into bite-sized pieces</li>\n<li>3/4 pound tomatoes, seeded, diced (about 2 cups)</li>\n<li>2 cups diced seeded peeled cucumber (from about 1 large)</li>\n<li>1 cup diced red bell pepper (from about 1 large)</li>\n<li>1/4 cup pitted kalamata olives or other brine-cured black olives, halved</li>\n<li>1/4 cup diced red onion</li>\n<li>1/4 cup crumbled feta cheese (about 2 ounces)</li>\n<li>3 Tbs chopped fresh Italian parsley</li>\n<li>1/2 cup extra-virgin olive oil</li>\n<li>1/4 cup red wine vinegar</li>\n<li>1 tsp dried oregano</li>\n<li>1/2 tsp salt</li>\n<li>1/2 tsp ground pepper</li>\n</ul>\n",
       "instructionsHtml": "<ol>\n<li>Combine lettuce, vegetables, olives, parsley, and feta in a large bowl.</li>\n<li>Combine oil, vinegar, oregano, salt and pepper in a small plastic container with a lid.</li>\n<li>Shake vigorously to combine oil and vinegar and pour over salad.</li>\n<li>Let the salad marinate until ready to serve.</li>\n</ol>\n",
@@ -2400,7 +2418,13 @@
         "amount": 5,
         "unit": "servings"
       },
-      "image": null,
+      "image": "/images/recipes/recipe-eb15b48f-04a6-41e1-b7fb-809e1d47c578-19e2e7628d.jpg",
+      "imageAlt": "Creamy tomato soup garnished with basil beside rustic bread",
+      "photoCredit": {
+        "creator": "Foodie Factor",
+        "url": "https://www.pexels.com/photo/brown-soup-in-white-ceramic-bowl-539451/",
+        "license": "Pexels License"
+      },
       "ingredientsMarkdown": "- 1/3 cup Oil\n- 1 medium Onion -- chopped\n- 1/2 tsp Minced Garlic\n- 1/4 cup All Purpose Flour\n- 1 18oz. can roasted diced tomatoes\n- 2 cans (14 1/2 Oz Ea.) Chicken Broth\n- 1/2 block of silken tofu or 1/2 cup Half And Half\n- 1/4 cup Chopped Fresh Basil\n- 1 tsp Sugar\n- 1/2 tsp Salt\n- 1/4 tsp Each Dill Weed And Pepper",
       "ingredientsHtml": "<ul>\n<li>1/3 cup Oil</li>\n<li>1 medium Onion -- chopped</li>\n<li>1/2 tsp Minced Garlic</li>\n<li>1/4 cup All Purpose Flour</li>\n<li>1 18oz. can roasted diced tomatoes</li>\n<li>2 cans (14 1/2 Oz Ea.) Chicken Broth</li>\n<li>1/2 block of silken tofu or 1/2 cup Half And Half</li>\n<li>1/4 cup Chopped Fresh Basil</li>\n<li>1 tsp Sugar</li>\n<li>1/2 tsp Salt</li>\n<li>1/4 tsp Each Dill Weed And Pepper</li>\n</ul>\n",
       "instructionsHtml": "<ol>\n<li>In a large saucepan, heat the oil. Over medium-low heat, saute&#39; the onion and garlic until tender.</li>\n<li>Stir in the flour and cook 1 minute.</li>\n<li>Add the remaining ingredients. Stir until well blended. Bring to a boil, reduce the heat, and simmer, uncovered, 20 minutes.</li>\n<li>Pour in batches into a blender or food processor and puree until smooth. Ladle into bowls and serve.</li>\n</ol>\n",
@@ -4751,7 +4775,13 @@
         "amount": 4,
         "unit": "servings"
       },
-      "image": null,
+      "image": "/images/recipes/recipe-f5490937-ea7e-4a7d-b4b3-1afd94a8407c-6e7ca9ba00.jpg",
+      "imageAlt": "Pad thai noodles with egg, herbs, peanuts, and lime",
+      "photoCredit": {
+        "creator": "Busy Bee and Green Tea",
+        "url": "https://unsplash.com/photos/delicious-pad-thai-with-fresh-herbs-and-lime-EDoy1yjPLV0",
+        "license": "Unsplash License"
+      },
       "ingredientsMarkdown": "- 4 ounces fettuccine-width rice stick noodles\n- 1/4 cup peanut oil\n- 1/4 cup tamarind paste\n- 1/4 cup fish sauce (nam pla)\n- 1/3 cup honey\n- 2 Tbs rice vinegar\n- 1/2 tsp red pepper flakes, or to taste\n- 1/4 cup chopped scallions\n- 1 garlic clove, minced\n- 2 eggs\n- 1 small head Napa cabbage, shredded (about 4 cups)\n- 1 cup mung bean sprouts\n- 1/2 pound peeled shrimp, pressed tofu or a combination\n- 1/2 cup roasted peanuts, chopped\n- 1/4 cup chopped fresh cilantro\n- 2 limes, quartered.",
       "ingredientsHtml": "<ul>\n<li>4 ounces fettuccine-width rice stick noodles</li>\n<li>1/4 cup peanut oil</li>\n<li>1/4 cup tamarind paste</li>\n<li>1/4 cup fish sauce (nam pla)</li>\n<li>1/3 cup honey</li>\n<li>2 Tbs rice vinegar</li>\n<li>1/2 tsp red pepper flakes, or to taste</li>\n<li>1/4 cup chopped scallions</li>\n<li>1 garlic clove, minced</li>\n<li>2 eggs</li>\n<li>1 small head Napa cabbage, shredded (about 4 cups)</li>\n<li>1 cup mung bean sprouts</li>\n<li>1/2 pound peeled shrimp, pressed tofu or a combination</li>\n<li>1/2 cup roasted peanuts, chopped</li>\n<li>1/4 cup chopped fresh cilantro</li>\n<li>2 limes, quartered.</li>\n</ul>\n",
       "instructionsHtml": "<ol>\n<li>Put noodles in a large bowl and add boiling water to cover.</li>\n<li>Let sit until noodles are just tender; check every 5 minutes or so to make sure they do not get too soft.</li>\n<li>Drain, drizzle with one tablespoon peanut oil to keep from sticking and set aside.</li>\n<li>Meanwhile, put tamarind paste, fish sauce, honey and vinegar in a small saucepan over medium-low heat and bring just to a simmer.</li>\n<li>Stir in red pepper flakes and set aside.</li>\n<li>Put remaining 3 tablespoons oil in a large skillet over medium-high heat; when oil shimmers, add scallions and garlic and cook for about a minute.</li>\n<li>Add eggs to pan; once they begin to set, scramble them until just done.</li>\n<li>Add cabbage and bean sprouts and continue to cook until cabbage begins to wilt, then add shrimp or tofu (or both).</li>\n<li>When shrimp begin to turn pink and tofu begins to brown, add drained noodles to pan along with sauce.</li>\n<li>Toss everything together to coat with tamarind sauce and combine well.</li>\n<li>When noodles are warmed through, serve, sprinkling each dish with peanuts and garnishing with cilantro and lime wedges.</li>\n<li>Yield: 4 servings.</li>\n</ol>\n",
@@ -6201,7 +6231,13 @@
         "amount": 18,
         "unit": "servings"
       },
-      "image": null,
+      "image": "/images/recipes/recipe-26525e31-fd44-4c48-929d-698774ea4724-82f08fb68a.jpg",
+      "imageAlt": "Creamy macaroni and cheese in a blue serving bowl",
+      "photoCredit": {
+        "creator": "Leanna Myers",
+        "url": "https://unsplash.com/photos/a-bowl-of-macaroni-and-cheese-Vkx_ZpQwQgE",
+        "license": "Unsplash License"
+      },
       "ingredientsMarkdown": "- 2 Tbs unsalted butter\n- 2 Tbs olive oil\n- 2 large garlic cloves, finely chopped\n- 2 cups coarse fresh bread crumbs\n\n- 2 to 3 Tbs chopped chipotle chiles in adobo\n- 1/2 stick unsalted butter\n- 1/2 cup all-purpose flour\n- 3 cups whole milk\n- 2 cups heavy cream\n- 1 Tbs dry mustard\n- 1 lb macaroni\n- 2 lb extra-sharp Cheddar (preferably white), grated\n\n### Make bread crumbs",
       "ingredientsHtml": "<ul>\n<li><p>2 Tbs unsalted butter</p>\n</li>\n<li><p>2 Tbs olive oil</p>\n</li>\n<li><p>2 large garlic cloves, finely chopped</p>\n</li>\n<li><p>2 cups coarse fresh bread crumbs</p>\n</li>\n<li><p>2 to 3 Tbs chopped chipotle chiles in adobo</p>\n</li>\n<li><p>1/2 stick unsalted butter</p>\n</li>\n<li><p>1/2 cup all-purpose flour</p>\n</li>\n<li><p>3 cups whole milk</p>\n</li>\n<li><p>2 cups heavy cream</p>\n</li>\n<li><p>1 Tbs dry mustard</p>\n</li>\n<li><p>1 lb macaroni</p>\n</li>\n<li><p>2 lb extra-sharp Cheddar (preferably white), grated</p>\n</li>\n</ul>\n<h3>Make bread crumbs</h3>\n",
       "instructionsHtml": "<ol>\n<li>Heat butter and oil in a 10-inch heavy skillet over moderate heat until foam subsides, then cook garlic and bread crumbs, stirring, until crumbs are golden.</li>\n<li>Transfer to paper towels to drain and season with salt.</li>\n<li>Make macaroni:</li>\n<li>Preheat oven to 350&#39;F. Chop chipotles.</li>\n<li>Melt butter in a 3- to 4-quart saucepan over moderate heat, then add flour and cook, whisking, 1 minute.</li>\n<li>Gradually whisk in milk, cream, and mustard and simmer, whisking occasionally, 3 minutes.</li>\n<li>Cook macaroni in a 6- to 7-quart pot of boiling salted water until just tender. Drain in a colander and transfer to a large bowl. Stir in white sauce, cheese, and salt to taste.</li>\n<li>Fill a 1 1/2-quart shallow casserole with half of macaroni mixture.</li>\n<li>Stir chipotles into remaining macaroni.</li>\n<li>Spoon into another 1 1/2-quart shallow casserole and sprinkle both with bread crumbs.</li>\n<li>Bake casseroles in middle of oven 30 minutes, or until bubbly.</li>\n<li>Cook&#39;s note:</li>\n<li>Macaroni and cheese may be made 2 days ahead, put into casseroles, cooled completely, and chilled, covered.</li>\n<li>Do not add bread crumbs until ready to bake. (Baking may take longer than 30 minutes.)</li>\n<li>Serves 8 adults plus 10 children as part of a buffet.</li>\n</ol>\n",
@@ -7801,7 +7837,13 @@
         "amount": 3,
         "unit": "cups"
       },
-      "image": null,
+      "image": "/images/recipes/recipe-e95b9695-0cff-4aa9-833c-77a585283ce0-6eddf8f3e5.jpg",
+      "imageAlt": "Homemade basil pesto in a glass jar with fresh basil leaves",
+      "photoCredit": {
+        "creator": "thea a",
+        "url": "https://www.pexels.com/photo/pesto-sauce-in-clear-glass-jar-with-basil-leaves-5604814/",
+        "license": "Pexels License"
+      },
       "ingredientsMarkdown": "- 3 cups fresh basil leaves\n- 1 1/2 cups chopped pine nuts or cashews\n- 4 garlic cloves, peeled\n- 1/4 cup grated Parmesan cheese\n- 1 cup olive oil\n- Salt and black pepper, to taste",
       "ingredientsHtml": "<ul>\n<li>3 cups fresh basil leaves</li>\n<li>1 1/2 cups chopped pine nuts or cashews</li>\n<li>4 garlic cloves, peeled</li>\n<li>1/4 cup grated Parmesan cheese</li>\n<li>1 cup olive oil</li>\n<li>Salt and black pepper, to taste</li>\n</ul>\n",
       "instructionsHtml": "<h3>Smooth Version</h3>\n<ol>\n<li>In a food processor, blend the basil, nuts, garlic, and Parmesan.</li>\n<li>With the machine running, slowly pour in the olive oil. Season with salt and pepper.</li>\n</ol>\n<h3>Chunky Version</h3>\n<ol>\n<li>Finely chop the basil, nuts, and garlic together on a cutting board.</li>\n<li>Transfer to a bowl and stir in the Parmesan and olive oil. Season with salt and pepper.</li>\n</ol>\n",
@@ -9326,7 +9368,9 @@
         "amount": 14,
         "unit": "servings"
       },
-      "image": "/images/recipes/german-chocolate-pecan-pound-cake.png",
+      "image": "/images/recipes/recipe-15dfa93c-a45a-4d87-a6de-cad146931cdb-ff3e0b3866.png",
+      "imageAlt": "German Chocolate Pecan Pound Cake",
+      "photoCredit": null,
       "ingredientsMarkdown": "- 1 cup unsalted butter, softened\n- 2 cups white sugar\n- 4 eggs\n- 1 tsp vanilla extract\n- 2 cups all-purpose flour\n- ½ tsp baking powder\n- ¼ tsp salt\n- 1 cup sour cream\n- 1 cup German chocolate, chopped\n- 1 cup pecans, chopped and toasted\n\n### For the German Chocolate Pecan Glaze:**\n\n- 1 cup German chocolate, chopped\n- ½ cup heavy cream\n- ½ cup pecans, chopped and toasted",
       "ingredientsHtml": "<ul>\n<li>1 cup unsalted butter, softened</li>\n<li>2 cups white sugar</li>\n<li>4 eggs</li>\n<li>1 tsp vanilla extract</li>\n<li>2 cups all-purpose flour</li>\n<li>½ tsp baking powder</li>\n<li>¼ tsp salt</li>\n<li>1 cup sour cream</li>\n<li>1 cup German chocolate, chopped</li>\n<li>1 cup pecans, chopped and toasted</li>\n</ul>\n<h3>For the German Chocolate Pecan Glaze:**</h3>\n<ul>\n<li>1 cup German chocolate, chopped</li>\n<li>½ cup heavy cream</li>\n<li>½ cup pecans, chopped and toasted</li>\n</ul>\n",
       "instructionsHtml": "<ol>\n<li><ul>\n<li><strong>Preheat Oven:</strong></li>\n</ul>\n</li>\n<li><ul>\n<li>Preheat the oven to 325°F (165°C) and grease and flour a 10-inch bundt pan.</li>\n</ul>\n</li>\n<li><ul>\n<li>Cream Butter and Sugar: In a large bowl, cream together the softened butter and white sugar until light and fluffy.</li>\n</ul>\n</li>\n<li><ul>\n<li><strong>Add Eggs and Vanilla:</strong></li>\n</ul>\n</li>\n<li><ul>\n<li>Beat in the eggs one at a time, then stir in the vanilla extract.</li>\n</ul>\n</li>\n<li><ul>\n<li><strong>Combine Dry Ingredients:</strong></li>\n</ul>\n</li>\n<li><ul>\n<li>In a separate bowl, whisk together the flour, baking powder, and salt.</li>\n</ul>\n</li>\n<li><ul>\n<li><strong>Mix Batter:</strong></li>\n</ul>\n</li>\n<li><ul>\n<li>Gradually add the dry ingredients to the butter mixture, alternating with the sour cream, mixing until just combined.</li>\n</ul>\n</li>\n<li><ul>\n<li>Fold in Chocolate and Pecans: Fold in the chopped German chocolate and toasted pecans.</li>\n</ul>\n</li>\n<li><ul>\n<li><strong>Prepare for Baking:</strong></li>\n</ul>\n</li>\n<li><ul>\n<li>Pour the batter into the prepared bundt pan and smooth the top.</li>\n</ul>\n</li>\n<li><ul>\n<li><strong>Bake:</strong></li>\n</ul>\n</li>\n<li><ul>\n<li>Bake the cake in the preheated oven for 60-70 minutes, or until a toothpick inserted into the center comes out clean.</li>\n</ul>\n</li>\n<li><ul>\n<li><strong>Cool:</strong></li>\n</ul>\n</li>\n<li><ul>\n<li>Allow the cake to cool in the pan for 10 minutes before removing it from the pan to cool completely on a wire rack.</li>\n</ul>\n</li>\n<li><ul>\n<li>For the German Chocolate Pecan Glaze:</li>\n</ul>\n</li>\n<li><ul>\n<li><strong>Heat Cream:</strong></li>\n</ul>\n</li>\n<li><ul>\n<li>In a small saucepan, heat the heavy cream until it just begins to simmer.</li>\n</ul>\n</li>\n<li><ul>\n<li><strong>Melt Chocolate:</strong></li>\n</ul>\n</li>\n<li><ul>\n<li>Remove the saucepan from heat and add the chopped German chocolate. Let it sit for a few minutes, then stir until smooth and creamy.</li>\n</ul>\n</li>\n<li><ul>\n<li><strong>Glaze the Cake:</strong></li>\n</ul>\n</li>\n<li><ul>\n<li>Drizzle the glaze over the cooled pound cake and sprinkle with toasted pecans. Enjoy!</li>\n</ul>\n</li>\n</ol>\n",

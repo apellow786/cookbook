@@ -8,6 +8,9 @@ const root = path.resolve(import.meta.dirname, '..');
 const source = process.env.COOKBOOK_SOURCE || '/Users/alexanderpellow/myvault/Cookbook/Recipes';
 const output = path.join(root, 'src/data/site-content.json');
 const imageOutput = path.join(root, 'public/images/recipes');
+const assetsDirectory = path.join(source, 'Assets');
+const photoManifestPath = path.join(assetsDirectory, 'photo-manifest.json');
+const supportedImageExtensions = new Set(['.jpg', '.jpeg', '.png', '.webp', '.avif']);
 
 const categoryOrder = [
   'Breakfast & Breads', 'Appetizers', 'Salads & Dressings', 'Soups & Stews',
@@ -54,17 +57,61 @@ function parseYield(value) {
   return { text, amount: match ? Number(match[1]) : null, unit: match?.[2]?.trim() || '' };
 }
 
-function findImage(title) {
-  const assets = path.join(source, 'Assets');
-  if (!fs.existsSync(assets)) return null;
-  const target = slugify(title);
-  const file = fs.readdirSync(assets).find((name) => slugify(path.parse(name).name) === target);
-  if (!file) return null;
-  fs.mkdirSync(imageOutput, { recursive: true });
-  const destination = `${target}${path.extname(file).toLowerCase()}`;
-  fs.copyFileSync(path.join(assets, file), path.join(imageOutput, destination));
-  return `/images/recipes/${destination}`;
+function loadPhotoManifest() {
+  if (!fs.existsSync(photoManifestPath)) return { version: 1, recipes: {}, categoryCovers: {} };
+  const manifest = JSON.parse(fs.readFileSync(photoManifestPath, 'utf8'));
+  if (manifest.version !== 1 || !manifest.recipes || typeof manifest.recipes !== 'object') {
+    throw new Error(`${photoManifestPath}: expected version 1 with a recipes object`);
+  }
+  return { ...manifest, categoryCovers: manifest.categoryCovers || {} };
 }
+
+const photoManifest = loadPhotoManifest();
+
+function safeAssetPath(relative) {
+  const candidate = path.resolve(assetsDirectory, relative);
+  const rootWithSeparator = `${path.resolve(assetsDirectory)}${path.sep}`;
+  if (!candidate.startsWith(rootWithSeparator)) throw new Error(`Photo path escapes Assets: ${relative}`);
+  return candidate;
+}
+
+function legacyImagePath(id, title) {
+  if (!fs.existsSync(assetsDirectory)) return null;
+  const recipeAssetDirectory = path.join(assetsDirectory, 'Recipes');
+  if (fs.existsSync(recipeAssetDirectory)) {
+    const stableFile = fs.readdirSync(recipeAssetDirectory).find((name) =>
+      path.parse(name).name === id && supportedImageExtensions.has(path.extname(name).toLowerCase()));
+    if (stableFile) return path.join(recipeAssetDirectory, stableFile);
+  }
+  const target = slugify(title);
+  const titleFile = fs.readdirSync(assetsDirectory).find((name) =>
+    slugify(path.parse(name).name) === target && supportedImageExtensions.has(path.extname(name).toLowerCase()));
+  return titleFile ? path.join(assetsDirectory, titleFile) : null;
+}
+
+function importPhoto(id, title) {
+  const entry = photoManifest.recipes[id];
+  const sourcePath = entry?.file ? safeAssetPath(entry.file) : legacyImagePath(id, title);
+  if (!sourcePath) return { image: null };
+  if (!fs.existsSync(sourcePath)) throw new Error(`${photoManifestPath}: missing photo for ${id}: ${entry.file}`);
+  const extension = path.extname(sourcePath).toLowerCase();
+  if (!supportedImageExtensions.has(extension)) throw new Error(`Unsupported photo format for ${id}: ${extension}`);
+  const hash = crypto.createHash('sha256').update(fs.readFileSync(sourcePath)).digest('hex').slice(0, 10);
+  const destination = `${id}-${hash}${extension}`;
+  fs.copyFileSync(sourcePath, path.join(imageOutput, destination));
+  return {
+    image: `/images/recipes/${destination}`,
+    imageAlt: entry?.alt || title,
+    photoCredit: entry?.source ? {
+      creator: entry.source.creator || '',
+      url: entry.source.url || '',
+      license: entry.source.license || '',
+    } : null,
+  };
+}
+
+fs.rmSync(imageOutput, { recursive: true, force: true });
+fs.mkdirSync(imageOutput, { recursive: true });
 
 const recipes = [];
 for (const category of categoryOrder) {
@@ -79,13 +126,15 @@ for (const category of categoryOrder) {
     const notes = section(doc.sections, ['notes', 'note']);
     const yieldValue = parseYield(doc.data.yield);
     const cuisines = Array.isArray(doc.data.tags) ? doc.data.tags.map(String) : [];
+    const id = doc.data.id || stableId('recipe', relative);
+    const photo = importPhoto(id, doc.title);
     recipes.push({
-      id: doc.data.id || stableId('recipe', relative),
+      id,
       slug: slugify(doc.title), title: doc.title, category,
       categoryDisplay: displayNames[category] || category,
       categorySlug: slugify(displayNames[category] || category),
       description: doc.intro, cuisines, yield: yieldValue,
-      image: findImage(doc.title),
+      ...photo,
       ingredientsMarkdown: ingredients, ingredientsHtml: marked.parse(ingredients),
       instructionsHtml: marked.parse(instructions),
       variationsHtml: variations ? marked.parse(variations) : '',
@@ -109,11 +158,23 @@ for (const recipe of recipes) {
   if (slugCounts.get(recipe.slug) > 1) recipe.slug = `${recipe.slug}-${recipe.categorySlug}`;
 }
 
-const categories = categoryOrder.map((name) => ({
-  name, displayName: displayNames[name] || name, slug: slugify(displayNames[name] || name),
-  count: recipes.filter((recipe) => recipe.category === name).length,
-  representative: recipes.find((recipe) => recipe.category === name && recipe.image)?.image || null,
-}));
+const categories = categoryOrder.map((name) => {
+  const categoryRecipes = recipes.filter((recipe) => recipe.category === name);
+  const coverId = photoManifest.categoryCovers[name];
+  const selectedCover = coverId ? recipes.find((recipe) => recipe.id === coverId && recipe.category === name) : null;
+  if (coverId && !selectedCover) throw new Error(`${photoManifestPath}: category cover for ${name} is not a recipe in that category`);
+  if (selectedCover && !selectedCover.image) throw new Error(`${photoManifestPath}: category cover for ${name} has no photo`);
+  return {
+    name, displayName: displayNames[name] || name, slug: slugify(displayNames[name] || name),
+    count: categoryRecipes.length,
+    representative: selectedCover?.image || categoryRecipes.find((recipe) => recipe.image)?.image || null,
+  };
+});
+
+const knownIds = new Set(recipes.map((recipe) => recipe.id));
+for (const id of Object.keys(photoManifest.recipes)) {
+  if (!knownIds.has(id)) console.warn(`Photo manifest contains unknown recipe id: ${id}`);
+}
 
 fs.mkdirSync(path.dirname(output), { recursive: true });
 fs.writeFileSync(output, JSON.stringify({ generatedAt: new Date().toISOString(), categories, recipes, tips }, null, 2) + '\n');

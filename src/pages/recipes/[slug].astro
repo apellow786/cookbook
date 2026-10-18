@@ -9,7 +9,7 @@ const isServings = /^servings?$/i.test(recipe.yield.unit);
   <button slot="header-action" class="favorite-button header-favorite" type="button" data-favorite={recipe.id} aria-label={`Add ${recipe.title} to favorites`} aria-pressed="false">♡</button>
   <article class="reading-page recipe-detail" data-recipe data-base-yield={recipe.yield.amount}>
     <header><h1>{recipe.title}</h1></header>
-    <div class:list={['recipe-hero', `category-${recipe.categorySlug}`]}>{recipe.image && <img src={url(recipe.image)} alt={`${recipe.title}`} />}</div>
+    <div class:list={['recipe-hero', `category-${recipe.categorySlug}`]}>{recipe.image && <img src={url(recipe.image)} alt={recipe.imageAlt || recipe.title} />}</div>
     <p class="lead">{recipe.description}</p>
     <div class="serving-control"><strong>{isServings ? 'Serves' : 'Makes'}</strong><button type="button" data-decrease aria-label="Decrease amount">−</button><output data-serving>{recipe.yield.amount}</output><button type="button" data-increase aria-label="Increase amount">+</button><span class="yield-unit">{isServings ? '' : recipe.yield.unit}</span><button class="reset-serving" type="button" data-reset hidden>Reset</button></div>
     <div class="recipe-actions"><button type="button" data-share><span aria-hidden="true">↗</span>Share</button><button type="button" data-print><span aria-hidden="true">▣</span>Print</button><button type="button" data-cook aria-pressed="false"><span aria-hidden="true">◉</span>Cook Mode</button></div>
