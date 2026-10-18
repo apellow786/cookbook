@@ -16,7 +16,9 @@ const categoryOrder = [
   'Breakfast & Breads', 'Appetizers', 'Salads & Dressings', 'Soups & Stews',
   'Main Dishes', 'Side Dishes', 'Sauces & Seasonings', 'Desserts',
 ];
-const displayNames = { 'Salads & Dressings': 'Salads' };
+const displayNames = {};
+// Keep existing public URLs stable when a category's reader-facing name changes.
+const categorySlugs = { 'Salads & Dressings': 'salads' };
 
 const slugify = (value) => value.toLowerCase().normalize('NFKD')
   .replace(/[’']/g, '').replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, '-')
@@ -142,7 +144,7 @@ for (const category of categoryOrder) {
       id,
       slug: slugify(doc.title), title: doc.title, category,
       categoryDisplay: displayNames[category] || category,
-      categorySlug: slugify(displayNames[category] || category),
+      categorySlug: categorySlugs[category] || slugify(displayNames[category] || category),
       description: doc.intro, cuisines, yield: yieldValue,
       ...photo,
       ingredientsMarkdown: ingredients, ingredientsHtml: marked.parse(ingredients),
@@ -175,7 +177,8 @@ const categories = categoryOrder.map((name) => {
   if (coverId && !selectedCover) throw new Error(`${photoManifestPath}: category cover for ${name} is not a recipe in that category`);
   if (selectedCover && !selectedCover.image) throw new Error(`${photoManifestPath}: category cover for ${name} has no photo`);
   return {
-    name, displayName: displayNames[name] || name, slug: slugify(displayNames[name] || name),
+    name, displayName: displayNames[name] || name,
+    slug: categorySlugs[name] || slugify(displayNames[name] || name),
     count: categoryRecipes.length,
     representative: selectedCover?.image || categoryRecipes.find((recipe) => recipe.image)?.image || null,
   };

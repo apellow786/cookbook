@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-18T14:39:51.317Z",
+  "generatedAt": "2026-10-18T14:56:06.646Z",
   "categories": [
     {
       "name": "Breakfast & Breads",
@@ -17,7 +17,7 @@
     },
     {
       "name": "Salads & Dressings",
-      "displayName": "Salads",
+      "displayName": "Salads & Dressings",
       "slug": "salads",
       "count": 45,
       "representative": "/images/recipes/recipe-f5708103-30dc-4271-8268-03174e1ef38f-858d001e36.jpg"
@@ -171,13 +171,13 @@
         "amount": 12,
         "unit": "muffins"
       },
-      "image": "/images/recipes/family-muffins-23df610f9f.jpg",
-      "imageAlt": "Freshly baked muffins",
+      "image": "/images/recipes/recipe-0f32688a-edbc-417f-b637-b9a06cce92ec-190034d52b.jpg",
+      "imageAlt": "Three golden blueberry muffins in white paper liners on a wooden surface",
       "photoCredit": {
-        "creator": "Pawel Kadysz",
-        "url": "https://stocksnap.io/photo/breakfast-muffins-AEOKEFZ5XP",
-        "license": "CC0 1.0",
-        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        "creator": "congerdesign",
+        "url": "https://pixabay.com/photos/muffins-blueberry-muffins-cakes-3371523/",
+        "license": "Pixabay Content License",
+        "licenseUrl": "https://pixabay.com/service/license-summary/"
       },
       "ingredientsMarkdown": "- Lemon-Sugar Topping\n- 1/3 cup sugar (2 1/3 ounces)\n- 1 1/2 tsp finely grated zest from 1 lemon\n\n- Muffins\n- 2 cups fresh blueberries (about 10 ounces), picked over\n- 1 1/8cups sugar (8 ounces) plus 1 tsp\n- 2 1/2cups unbleached all-purpose flour (12 1/2 ounces)\n- 2 1/2teaspoons baking powder\n- 1 tsp table salt\n- 2 large eggs\n- 4 Tbs (1/2 stick) unsalted butter, melted and cooled slightly\n- 1/4 cup vegetable oil\n- 1 cup buttermilk (see note)\n- 1 1/2teaspoons vanilla extract",
       "ingredientsHtml": "<ul>\n<li><p>Lemon-Sugar Topping</p>\n</li>\n<li><p>1/3 cup sugar (2 1/3 ounces)</p>\n</li>\n<li><p>1 1/2 tsp finely grated zest from 1 lemon</p>\n</li>\n<li><p>Muffins</p>\n</li>\n<li><p>2 cups fresh blueberries (about 10 ounces), picked over</p>\n</li>\n<li><p>1 1/8cups sugar (8 ounces) plus 1 tsp</p>\n</li>\n<li><p>2 1/2cups unbleached all-purpose flour (12 1/2 ounces)</p>\n</li>\n<li><p>2 1/2teaspoons baking powder</p>\n</li>\n<li><p>1 tsp table salt</p>\n</li>\n<li><p>2 large eggs</p>\n</li>\n<li><p>4 Tbs (1/2 stick) unsalted butter, melted and cooled slightly</p>\n</li>\n<li><p>1/4 cup vegetable oil</p>\n</li>\n<li><p>1 cup buttermilk (see note)</p>\n</li>\n<li><p>1 1/2teaspoons vanilla extract</p>\n</li>\n</ul>\n",
@@ -1504,7 +1504,7 @@
       "slug": "all-purpose-vinaigrette",
       "title": "All-Purpose Vinaigrette",
       "category": "Salads & Dressings",
-      "categoryDisplay": "Salads",
+      "categoryDisplay": "Salads & Dressings",
       "categorySlug": "salads",
       "description": "A flexible Dijon vinaigrette with lemon juice and fresh herbs, made with your choice of vinegar.",
       "cuisines": [
@@ -1536,7 +1536,7 @@
       "slug": "autumn-chopped-salad",
       "title": "Autumn Chopped Salad",
       "category": "Salads & Dressings",
-      "categoryDisplay": "Salads",
+      "categoryDisplay": "Salads & Dressings",
       "categorySlug": "salads",
       "description": "Autumn Chopped Salad pairs bacon, feta, and balsamic vinegar in a savory salad.",
       "cuisines": [
@@ -1568,7 +1568,7 @@
       "slug": "black-bean-and-avocado-quinoa-salad",
       "title": "Black Bean and Avocado Quinoa Salad",
       "category": "Salads & Dressings",
-      "categoryDisplay": "Salads",
+      "categoryDisplay": "Salads & Dressings",
       "categorySlug": "salads",
       "description": "Black Bean and Avocado Quinoa Salad pairs cumin, lime, and cherries in a bright salad.",
       "cuisines": [
@@ -1600,7 +1600,7 @@
       "slug": "black-eyed-pea-salad",
       "title": "Black-Eyed Pea Salad",
       "category": "Salads & Dressings",
-      "categoryDisplay": "Salads",
+      "categoryDisplay": "Salads & Dressings",
       "categorySlug": "salads",
       "description": "Black-Eyed Pea Salad pairs jalapeño, cilantro, and red wine in a spicy salad.",
       "cuisines": [
@@ -1632,7 +1632,7 @@
       "slug": "blue-cheese-dressing",
       "title": "Blue Cheese Dressing",
       "category": "Salads & Dressings",
-      "categoryDisplay": "Salads",
+      "categoryDisplay": "Salads & Dressings",
       "categorySlug": "salads",
       "description": "Blue Cheese Dressing combines sour cream and blue cheese in a creamy dressing.",
       "cuisines": [
@@ -1664,7 +1664,7 @@
       "slug": "bowtie-pasta-salad",
       "title": "Bowtie Pasta Salad",
       "category": "Salads & Dressings",
-      "categoryDisplay": "Salads",
+      "categoryDisplay": "Salads & Dressings",
       "categorySlug": "salads",
       "description": "Bowtie Pasta Salad pairs lime, lemon, and cilantro in a bright salad.",
       "cuisines": [
@@ -1696,7 +1696,7 @@
       "slug": "caesar-salad-dressing",
       "title": "Caesar Salad Dressing",
       "category": "Salads & Dressings",
-      "categoryDisplay": "Salads",
+      "categoryDisplay": "Salads & Dressings",
       "categorySlug": "salads",
       "description": "Caesar Salad Dressing combines lemon and Parmesan in a bright dressing.",
       "cuisines": [
@@ -1728,7 +1728,7 @@
       "slug": "candied-pecans",
       "title": "Candied Pecans",
       "category": "Salads & Dressings",
-      "categoryDisplay": "Salads",
+      "categoryDisplay": "Salads & Dressings",
       "categorySlug": "salads",
       "description": "Pecans gives Candied Pecans its defining flavor and texture.",
       "cuisines": [
@@ -1760,7 +1760,7 @@
       "slug": "chicken-avocado-and-yogurt-salad",
       "title": "Chicken, Avocado, and Yogurt Salad",
       "category": "Salads & Dressings",
-      "categoryDisplay": "Salads",
+      "categoryDisplay": "Salads & Dressings",
       "categorySlug": "salads",
       "description": "Chicken, Avocado, and Yogurt Salad pairs lemon, pecans, and cilantro in a bright salad.",
       "cuisines": [
@@ -1792,7 +1792,7 @@
       "slug": "chinese-chicken-salad",
       "title": "Chinese Chicken Salad",
       "category": "Salads & Dressings",
-      "categoryDisplay": "Salads",
+      "categoryDisplay": "Salads & Dressings",
       "categorySlug": "salads",
       "description": "Chinese Chicken Salad pairs toasted sesame oil, cilantro, and soy sauce in a bright salad.",
       "cuisines": [
@@ -1824,7 +1824,7 @@
       "slug": "cilantro-lime-dressing",
       "title": "Cilantro Lime Dressing",
       "category": "Salads & Dressings",
-      "categoryDisplay": "Salads",
+      "categoryDisplay": "Salads & Dressings",
       "categorySlug": "salads",
       "description": "Cilantro Lime Dressing combines yogurt, cilantro, and lime in a bright dressing.",
       "cuisines": [
@@ -1856,7 +1856,7 @@
       "slug": "cilantro-lime-cabbage-slaw",
       "title": "Cilantro-Lime Cabbage Slaw",
       "category": "Salads & Dressings",
-      "categoryDisplay": "Salads",
+      "categoryDisplay": "Salads & Dressings",
       "categorySlug": "salads",
       "description": "Cilantro-Lime Cabbage Slaw pairs cumin, honey, and cilantro in a bright salad.",
       "cuisines": [
@@ -1888,7 +1888,7 @@
       "slug": "citrus-lime-vinaigrette",
       "title": "Citrus Lime Vinaigrette",
       "category": "Salads & Dressings",
-      "categoryDisplay": "Salads",
+      "categoryDisplay": "Salads & Dressings",
       "categorySlug": "salads",
       "description": "Citrus Lime Vinaigrette combines jalapeño, cilantro, and lime in a spicy dressing.",
       "cuisines": [
@@ -1920,7 +1920,7 @@
       "slug": "classic-caesar-dressing",
       "title": "Classic Caesar Dressing",
       "category": "Salads & Dressings",
-      "categoryDisplay": "Salads",
+      "categoryDisplay": "Salads & Dressings",
       "categorySlug": "salads",
       "description": "A creamy Caesar dressing with Parmesan, anchovy, and garlic, using mayonnaise in place of a separate raw egg.",
       "cuisines": [
@@ -1952,7 +1952,7 @@
       "slug": "classic-vinaigrette",
       "title": "Classic Vinaigrette",
       "category": "Salads & Dressings",
-      "categoryDisplay": "Salads",
+      "categoryDisplay": "Salads & Dressings",
       "categorySlug": "salads",
       "description": "Classic Vinaigrette combines red wine and honey in a bright dressing.",
       "cuisines": [
@@ -1984,7 +1984,7 @@
       "slug": "creamy-avocado-ranch-dressing",
       "title": "Creamy Avocado Ranch Dressing",
       "category": "Salads & Dressings",
-      "categoryDisplay": "Salads",
+      "categoryDisplay": "Salads & Dressings",
       "categorySlug": "salads",
       "description": "Creamy Avocado Ranch Dressing combines lime, buttermilk, and cilantro in a bright dressing.",
       "cuisines": [
@@ -2016,7 +2016,7 @@
       "slug": "creamy-balsamic-dijon-dressing",
       "title": "Creamy Balsamic Dijon Dressing",
       "category": "Salads & Dressings",
-      "categoryDisplay": "Salads",
+      "categoryDisplay": "Salads & Dressings",
       "categorySlug": "salads",
       "description": "Creamy Balsamic Dijon Dressing combines lemon and balsamic vinegar in a bright dressing.",
       "cuisines": [
@@ -2048,7 +2048,7 @@
       "slug": "creamy-herby-green-dressing",
       "title": "Creamy Herby Green Dressing",
       "category": "Salads & Dressings",
-      "categoryDisplay": "Salads",
+      "categoryDisplay": "Salads & Dressings",
       "categorySlug": "salads",
       "description": "Yogurt, avocado, parsley, chives, and scallions blend into a creamy, pourable dressing for salads, roasted vegetables, fish, or chicken.",
       "cuisines": [
@@ -2080,7 +2080,7 @@
       "slug": "cumin-lime-dressing",
       "title": "Cumin Lime Dressing",
       "category": "Salads & Dressings",
-      "categoryDisplay": "Salads",
+      "categoryDisplay": "Salads & Dressings",
       "categorySlug": "salads",
       "description": "Cumin Lime Dressing combines cumin and lime in a bright dressing.",
       "cuisines": [
@@ -2112,7 +2112,7 @@
       "slug": "curried-cashew-pear-and-grape-salad",
       "title": "Curried Cashew, Pear, and Grape Salad",
       "category": "Salads & Dressings",
-      "categoryDisplay": "Salads",
+      "categoryDisplay": "Salads & Dressings",
       "categorySlug": "salads",
       "description": "Curried Cashew, Pear, and Grape Salad pairs bacon, cayenne, and cashews in a spicy salad.",
       "cuisines": [
@@ -2144,7 +2144,7 @@
       "slug": "eggless-caesar-dressing",
       "title": "Eggless Caesar Dressing",
       "category": "Salads & Dressings",
-      "categoryDisplay": "Salads",
+      "categoryDisplay": "Salads & Dressings",
       "categorySlug": "salads",
       "description": "Eggless Caesar Dressing combines lemon and Parmesan in a bright dressing.",
       "cuisines": [
@@ -2176,7 +2176,7 @@
       "slug": "french-style-potato-salad",
       "title": "French-Style Potato Salad",
       "category": "Salads & Dressings",
-      "categoryDisplay": "Salads",
+      "categoryDisplay": "Salads & Dressings",
       "categorySlug": "salads",
       "description": "French-Style Potato Salad pairs bacon, red wine, and white wine in a bright salad.",
       "cuisines": [
@@ -2208,7 +2208,7 @@
       "slug": "garlic-vinaigrette-salad-dressing",
       "title": "Garlic Vinaigrette Salad Dressing",
       "category": "Salads & Dressings",
-      "categoryDisplay": "Salads",
+      "categoryDisplay": "Salads & Dressings",
       "categorySlug": "salads",
       "description": "Garlic Vinaigrette Salad Dressing combines basil and lemon in a bright dressing.",
       "cuisines": [
@@ -2240,7 +2240,7 @@
       "slug": "greek-salad",
       "title": "Greek Salad",
       "category": "Salads & Dressings",
-      "categoryDisplay": "Salads",
+      "categoryDisplay": "Salads & Dressings",
       "categorySlug": "salads",
       "description": "Greek Salad pairs feta, red wine, and oregano in a bright salad.",
       "cuisines": [
@@ -2272,7 +2272,7 @@
       "slug": "greek-yogurt-salad-dressing",
       "title": "Greek Yogurt Salad Dressing",
       "category": "Salads & Dressings",
-      "categoryDisplay": "Salads",
+      "categoryDisplay": "Salads & Dressings",
       "categorySlug": "salads",
       "description": "Greek Yogurt Salad Dressing combines red wine, dill, and yogurt in a bright dressing.",
       "cuisines": [
@@ -2304,7 +2304,7 @@
       "slug": "honey-lime-dressing",
       "title": "Honey Lime Dressing",
       "category": "Salads & Dressings",
-      "categoryDisplay": "Salads",
+      "categoryDisplay": "Salads & Dressings",
       "categorySlug": "salads",
       "description": "Honey Lime Dressing combines jalapeño, ginger, and cilantro in a spicy dressing.",
       "cuisines": [
@@ -2336,7 +2336,7 @@
       "slug": "honey-mustard-salad-dressing",
       "title": "Honey Mustard Salad Dressing",
       "category": "Salads & Dressings",
-      "categoryDisplay": "Salads",
+      "categoryDisplay": "Salads & Dressings",
       "categorySlug": "salads",
       "description": "Honey anchors this bright honey mustard salad dressing.",
       "cuisines": [
@@ -2368,7 +2368,7 @@
       "slug": "lemon-dijon-dressing",
       "title": "Lemon-Dijon Dressing",
       "category": "Salads & Dressings",
-      "categoryDisplay": "Salads",
+      "categoryDisplay": "Salads & Dressings",
       "categorySlug": "salads",
       "description": "A bright lemon and Dijon dressing with olive oil and a little honey.",
       "cuisines": [
@@ -2400,7 +2400,7 @@
       "slug": "pasta-salad-for-si",
       "title": "Pasta Salad for SI",
       "category": "Salads & Dressings",
-      "categoryDisplay": "Salads",
+      "categoryDisplay": "Salads & Dressings",
       "categorySlug": "salads",
       "description": "Pasta Salad for SI pairs Parmesan, sage, and apples in a bright salad.",
       "cuisines": [
@@ -2432,7 +2432,7 @@
       "slug": "pasta-salad-for-tsm",
       "title": "Pasta Salad for TSM",
       "category": "Salads & Dressings",
-      "categoryDisplay": "Salads",
+      "categoryDisplay": "Salads & Dressings",
       "categorySlug": "salads",
       "description": "Lemon gives Pasta Salad for TSM its defining flavor and texture.",
       "cuisines": [
@@ -2464,7 +2464,7 @@
       "slug": "pasta-salad",
       "title": "Pasta Salad",
       "category": "Salads & Dressings",
-      "categoryDisplay": "Salads",
+      "categoryDisplay": "Salads & Dressings",
       "categorySlug": "salads",
       "description": "Pasta Salad pairs lime and lemon in a bright salad.",
       "cuisines": [
@@ -2496,7 +2496,7 @@
       "slug": "ranch-dressing",
       "title": "Ranch Dressing",
       "category": "Salads & Dressings",
-      "categoryDisplay": "Salads",
+      "categoryDisplay": "Salads & Dressings",
       "categorySlug": "salads",
       "description": "Buttermilk, sour cream, herbs, Dijon, and Worcestershire create a tangy, savory ranch dressing.",
       "cuisines": [
@@ -2528,7 +2528,7 @@
       "slug": "salt-lick-potato-salad",
       "title": "Salt Lick Potato Salad",
       "category": "Salads & Dressings",
-      "categoryDisplay": "Salads",
+      "categoryDisplay": "Salads & Dressings",
       "categorySlug": "salads",
       "description": "Dill gives Salt Lick Potato Salad its defining flavor and texture.",
       "cuisines": [
@@ -2560,7 +2560,7 @@
       "slug": "sesame-ginger-miso-dressing",
       "title": "Sesame Ginger Miso Dressing",
       "category": "Salads & Dressings",
-      "categoryDisplay": "Salads",
+      "categoryDisplay": "Salads & Dressings",
       "categorySlug": "salads",
       "description": "Sesame Ginger Miso Dressing combines tahini, maple syrup, and miso in a bright dressing.",
       "cuisines": [
@@ -2592,7 +2592,7 @@
       "slug": "sesame-soy-dressing",
       "title": "Sesame-Soy Dressing",
       "category": "Salads & Dressings",
-      "categoryDisplay": "Salads",
+      "categoryDisplay": "Salads & Dressings",
       "categorySlug": "salads",
       "description": "A tangy rice vinegar dressing with soy sauce, sesame oil, lime, and minced shallot or scallions, especially suited to slaws.",
       "cuisines": [
@@ -2624,7 +2624,7 @@
       "slug": "southwestern-chopped-salad",
       "title": "Southwestern Chopped Salad",
       "category": "Salads & Dressings",
-      "categoryDisplay": "Salads",
+      "categoryDisplay": "Salads & Dressings",
       "categorySlug": "salads",
       "description": "Southwestern Chopped Salad pairs black beans, cherries, and cilantro in a savory salad.",
       "cuisines": [
@@ -2656,7 +2656,7 @@
       "slug": "spinach-salad",
       "title": "Spinach Salad",
       "category": "Salads & Dressings",
-      "categoryDisplay": "Salads",
+      "categoryDisplay": "Salads & Dressings",
       "categorySlug": "salads",
       "description": "Spinach Salad pairs feta, red wine, and oregano in a bright salad.",
       "cuisines": [
@@ -2688,7 +2688,7 @@
       "slug": "stetson-chopped-salad",
       "title": "Stetson Chopped Salad",
       "category": "Salads & Dressings",
-      "categoryDisplay": "Salads",
+      "categoryDisplay": "Salads & Dressings",
       "categorySlug": "salads",
       "description": "Stetson Chopped Salad pairs pumpkin seeds, buttermilk, and lemon in a bright salad.",
       "cuisines": [
@@ -2720,7 +2720,7 @@
       "slug": "tsm-balsamic-vinaigrette",
       "title": "TSM Balsamic Vinaigrette",
       "category": "Salads & Dressings",
-      "categoryDisplay": "Salads",
+      "categoryDisplay": "Salads & Dressings",
       "categorySlug": "salads",
       "description": "TSM Balsamic Vinaigrette combines lemon and balsamic vinegar in a bright dressing.",
       "cuisines": [
@@ -2752,7 +2752,7 @@
       "slug": "tahini-tamari-dressing",
       "title": "Tahini Tamari Dressing",
       "category": "Salads & Dressings",
-      "categoryDisplay": "Salads",
+      "categoryDisplay": "Salads & Dressings",
       "categorySlug": "salads",
       "description": "Tahini Tamari Dressing combines tahini, lemon, and cashews in a bright dressing.",
       "cuisines": [
@@ -2784,7 +2784,7 @@
       "slug": "tamari-cashew-vinaigrette-dressing",
       "title": "Tamari Cashew Vinaigrette Dressing",
       "category": "Salads & Dressings",
-      "categoryDisplay": "Salads",
+      "categoryDisplay": "Salads & Dressings",
       "categorySlug": "salads",
       "description": "Tamari Cashew Vinaigrette Dressing combines balsamic vinegar and cashews in a bright dressing.",
       "cuisines": [
@@ -2816,7 +2816,7 @@
       "slug": "teriyaki-lime-dressing",
       "title": "Teriyaki Lime Dressing",
       "category": "Salads & Dressings",
-      "categoryDisplay": "Salads",
+      "categoryDisplay": "Salads & Dressings",
       "categorySlug": "salads",
       "description": "Teriyaki Lime Dressing combines ginger, soy sauce, and cilantro in a bright dressing.",
       "cuisines": [
@@ -2848,7 +2848,7 @@
       "slug": "thai-cucumber-salad",
       "title": "Thai Cucumber Salad",
       "category": "Salads & Dressings",
-      "categoryDisplay": "Salads",
+      "categoryDisplay": "Salads & Dressings",
       "categorySlug": "salads",
       "description": "Thai Cucumber Salad pairs fish sauce, cayenne, and cilantro in a spicy salad.",
       "cuisines": [
@@ -2880,7 +2880,7 @@
       "slug": "thai-quinoa-salad",
       "title": "Thai Quinoa Salad",
       "category": "Salads & Dressings",
-      "categoryDisplay": "Salads",
+      "categoryDisplay": "Salads & Dressings",
       "categorySlug": "salads",
       "description": "Thai Quinoa Salad pairs ginger, maple syrup, and peanut butter in a spicy salad.",
       "cuisines": [
@@ -2912,7 +2912,7 @@
       "slug": "thousand-island-dressing",
       "title": "Thousand Island Dressing",
       "category": "Salads & Dressings",
-      "categoryDisplay": "Salads",
+      "categoryDisplay": "Salads & Dressings",
       "categorySlug": "salads",
       "description": "Thousand Island Dressing is a savory finishing dressing for adding concentrated flavor at the table.",
       "cuisines": [
@@ -10174,8 +10174,8 @@
     },
     {
       "id": "recipe-3a4fa07c-fa45-4719-9899-8b5951492010",
-      "slug": "sizzling-steakhouse-rub",
-      "title": "Sizzling Steakhouse Rub",
+      "slug": "sizzling-steakhouse-spice-rub",
+      "title": "Sizzling Steakhouse Spice Rub",
       "category": "Sauces & Seasonings",
       "categoryDisplay": "Sauces & Seasonings",
       "categorySlug": "sauces-and-seasonings",
@@ -10202,7 +10202,7 @@
       "variationsHtml": "",
       "notesHtml": "",
       "searchIngredients": "- 2 tsp black pepper - 1 1/2 tsp sea salt - 1 tsp dry mustard - 1/2 tsp garlic powder - 1 tsp smoked paprika - 1/2 tsp cayenne pepper",
-      "source": "Sauces & Seasonings/Sizzling Steakhouse Rub.md"
+      "source": "Sauces & Seasonings/Sizzling Steakhouse Spice Rub.md"
     },
     {
       "id": "recipe-ee3488d9-d450-43a8-8fa1-b5d800581fc6",
