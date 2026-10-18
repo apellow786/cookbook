@@ -1,0 +1,105 @@
+/* Global type scaling belongs on the root because rem-based text otherwise ignores body sizing. */
+html {
+  font-size: calc(16px * var(--font-scale));
+}
+
+body {
+  font-size: 1rem;
+}
+
+.home-page > .favorites-link {
+  margin-top: 0;
+}
+
+.mobile-nav .nav-search-icon {
+  display: grid;
+  place-items: center;
+  width: 1.7rem;
+  height: 1.7rem;
+  margin-inline: auto;
+}
+
+.mobile-nav .nav-search-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+/* Rustic Kitchen: textured paper, old-style type, sturdy square-edged cards. */
+html[data-theme='rustic'] {
+  --serif: Palatino, 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
+  --sans: 'Trebuchet MS', ui-sans-serif, system-ui, sans-serif;
+}
+
+html[data-theme='rustic'] body {
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0 5px, rgba(85, 57, 31, 0.018) 5px 6px),
+    radial-gradient(circle at 15% 10%, rgba(121, 96, 58, 0.08), transparent 32rem);
+}
+
+html[data-theme='rustic'] :is(.category-card, .recipe-row, .tips-list article, .favorites-link, .search-field, .recipe-actions button, .appearance-dialog) {
+  border-width: 2px;
+  border-radius: 7px;
+  box-shadow: 3px 4px 0 color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+html[data-theme='rustic'] :is(.back-button, .appearance-button, .header-favorite, .serving-control button:not(.reset-serving), .size-options button, .appearance-dialog select) {
+  border-radius: 5px;
+}
+
+html[data-theme='rustic'] :is(.page-title h1, .home-page > section > h1, .reading-page > header h1, .reading-page section > h2) {
+  letter-spacing: 0.015em;
+}
+
+/* Fresh & Modern: one clean sans-serif family, flat surfaces, generous curves. */
+html[data-theme='modern'] {
+  --serif: 'Avenir Next', Avenir, Inter, ui-sans-serif, system-ui, sans-serif;
+  --sans: 'Avenir Next', Avenir, Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+html[data-theme='modern'] :is(.category-card, .recipe-row, .tips-list article, .favorites-link, .search-field, .recipe-actions button, .appearance-dialog) {
+  border-radius: 22px;
+  box-shadow: none;
+}
+
+html[data-theme='modern'] :is(.back-button, .appearance-button, .header-favorite, .serving-control button:not(.reset-serving), .size-options button, .appearance-dialog select) {
+  border-radius: 999px;
+}
+
+html[data-theme='modern'] :is(.page-title h1, .home-page > section > h1, .reading-page > header h1, .reading-page section > h2) {
+  font-weight: 650;
+  letter-spacing: -0.035em;
+}
+
+html[data-theme='modern'] .site-header {
+  border-bottom: 0;
+  box-shadow: 0 1px 12px var(--shadow);
+}
+
+/* Dark Kitchen: high-contrast editorial type and elevated charcoal panels. */
+html[data-theme='dark'] {
+  --serif: Baskerville, 'Baskerville Old Face', Georgia, serif;
+  --sans: 'Avenir Next', Avenir, ui-sans-serif, system-ui, sans-serif;
+}
+
+html[data-theme='dark'] body {
+  background-image: radial-gradient(circle at 50% -10%, rgba(223, 166, 141, 0.09), transparent 38rem);
+}
+
+html[data-theme='dark'] :is(.category-card, .recipe-row, .tips-list article, .favorites-link, .search-field, .recipe-actions button, .appearance-dialog) {
+  border-color: color-mix(in srgb, var(--accent) 28%, var(--line));
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
+}
+
+html[data-theme='dark'] :is(.page-title h1, .home-page > section > h1, .reading-page > header h1, .reading-page section > h2) {
+  letter-spacing: 0.01em;
+}
+
+@media print {
+  html {
+    font-size: 11pt !important;
+  }
+}

@@ -4,7 +4,7 @@ const { active } = Astro.props;
 ---
 <nav class="mobile-nav" aria-label="Primary">
   <a class:list={{active:active==='home'}} href={url('/')}><span aria-hidden="true">⌂</span>Home</a>
-  <a class:list={{active:active==='search'}} href={url('/search/')}><span aria-hidden="true">⌕</span>Search</a>
+  <a class:list={{active:active==='search'}} href={url('/search/')}><span class="nav-search-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4 4"></path></svg></span>Search</a>
   <a class:list={{active:active==='favorites'}} href={url('/favorites/')}><span aria-hidden="true">♡</span>Favorites</a>
   <a class:list={{active:active==='tips'}} href={url('/tips/')}><span aria-hidden="true">💡</span>Tips</a>
 </nav>
