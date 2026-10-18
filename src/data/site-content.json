@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-18T04:00:18.059Z",
+  "generatedAt": "2026-10-18T14:39:51.317Z",
   "categories": [
     {
       "name": "Breakfast & Breads",
@@ -75,13 +75,13 @@
         "amount": 8,
         "unit": "servings"
       },
-      "image": "/images/recipes/family-french-toast-8d0238b4a2.jpg",
-      "imageAlt": "Slices of golden French toast",
+      "image": "/images/recipes/recipe-68acc015-8d14-4378-9c98-450afeb9c7cb-b7faa3ee2a.jpg",
+      "imageAlt": "Thick slices of French toast with syrup, powdered sugar, cinnamon, and fruit",
       "photoCredit": {
-        "creator": "smsegall",
-        "url": "https://www.flickr.com/photos/181991826@N05/48117824177",
-        "license": "CC0 1.0",
-        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        "creator": "renatonutri",
+        "url": "https://pixabay.com/illustrations/ai-generated-french-toast-rabanada-8445493/",
+        "license": "Pixabay Content License",
+        "licenseUrl": "https://pixabay.com/service/license-summary/"
       },
       "ingredientsMarkdown": "- 1 loaf French bread (13 to 16 ounces)\n- 8 large eggs\n- 2 cups half-and-half\n- 1 cup milk\n- 2 Tbs granulated sugar\n- 1 tsp vanilla extract\n- 1/4 tsp ground cinnamon\n- 1/4 tsp ground nutmeg\n- Dash salt\n- Maple syrup",
       "ingredientsHtml": "<ul>\n<li>1 loaf French bread (13 to 16 ounces)</li>\n<li>8 large eggs</li>\n<li>2 cups half-and-half</li>\n<li>1 cup milk</li>\n<li>2 Tbs granulated sugar</li>\n<li>1 tsp vanilla extract</li>\n<li>1/4 tsp ground cinnamon</li>\n<li>1/4 tsp ground nutmeg</li>\n<li>Dash salt</li>\n<li>Maple syrup</li>\n</ul>\n",
