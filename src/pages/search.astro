@@ -42,7 +42,7 @@ const searchData = siteContent.recipes.map(({id,slug,title,categorySlug,descript
             combined.set(result.item.id, current);
           }
         }
-        found = [...combined.values()].sort((a,b) => b.hits-a.hits || a.score-b.score || a.title.localeCompare(b.title));
+        found = [...combined.values()].filter((recipe) => recipe.hits === terms.length).sort((a,b) => a.score-b.score || a.title.localeCompare(b.title));
       }
       if (filter) found = found.filter((r) => r.cuisines.includes(filter));
       results.innerHTML = found.map(row).join(''); count.textContent = found.length ? `${found.length} recipe${found.length===1?'':'s'}` : '';

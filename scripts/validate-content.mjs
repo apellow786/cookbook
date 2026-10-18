@@ -16,6 +16,7 @@ for (const recipe of data.recipes) {
   if (!recipe.description) warnings.push(`${recipe.source}: missing description`);
   if (!recipe.ingredientsMarkdown) warnings.push(`${recipe.source}: missing Ingredients section`);
   if (!recipe.instructionsHtml) warnings.push(`${recipe.source}: missing Instructions section`);
+  if (!recipe.image) errors.push(`${recipe.source}: missing recipe photo`);
   if (!Number.isFinite(recipe.yield.amount) || recipe.yield.amount <= 0) errors.push(`${recipe.source}: unusable yield "${recipe.yield.text}"`);
   if (!recipe.yield.unit) errors.push(`${recipe.source}: yield needs a unit`);
 }

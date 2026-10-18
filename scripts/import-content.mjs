@@ -58,12 +58,17 @@ function parseYield(value) {
 }
 
 function loadPhotoManifest() {
-  if (!fs.existsSync(photoManifestPath)) return { version: 1, recipes: {}, categoryCovers: {} };
+  if (!fs.existsSync(photoManifestPath)) return { version: 1, recipes: {}, families: {}, recipeFamilies: {}, categoryCovers: {} };
   const manifest = JSON.parse(fs.readFileSync(photoManifestPath, 'utf8'));
   if (manifest.version !== 1 || !manifest.recipes || typeof manifest.recipes !== 'object') {
     throw new Error(`${photoManifestPath}: expected version 1 with a recipes object`);
   }
-  return { ...manifest, categoryCovers: manifest.categoryCovers || {} };
+  return {
+    ...manifest,
+    families: manifest.families || {},
+    recipeFamilies: manifest.recipeFamilies || {},
+    categoryCovers: manifest.categoryCovers || {},
+  };
 }
 
 const photoManifest = loadPhotoManifest();
@@ -90,14 +95,18 @@ function legacyImagePath(id, title) {
 }
 
 function importPhoto(id, title) {
-  const entry = photoManifest.recipes[id];
+  const family = photoManifest.recipeFamilies[id];
+  const recipeEntry = photoManifest.recipes[id];
+  const entry = recipeEntry || (family ? photoManifest.families[family] : null);
+  if (family && !entry) throw new Error(`${photoManifestPath}: unknown photo family for ${id}: ${family}`);
   const sourcePath = entry?.file ? safeAssetPath(entry.file) : legacyImagePath(id, title);
   if (!sourcePath) return { image: null };
   if (!fs.existsSync(sourcePath)) throw new Error(`${photoManifestPath}: missing photo for ${id}: ${entry.file}`);
   const extension = path.extname(sourcePath).toLowerCase();
   if (!supportedImageExtensions.has(extension)) throw new Error(`Unsupported photo format for ${id}: ${extension}`);
   const hash = crypto.createHash('sha256').update(fs.readFileSync(sourcePath)).digest('hex').slice(0, 10);
-  const destination = `${id}-${hash}${extension}`;
+  const outputKey = recipeEntry ? id : family ? `family-${slugify(family)}` : id;
+  const destination = `${outputKey}-${hash}${extension}`;
   fs.copyFileSync(sourcePath, path.join(imageOutput, destination));
   return {
     image: `/images/recipes/${destination}`,
@@ -106,6 +115,7 @@ function importPhoto(id, title) {
       creator: entry.source.creator || '',
       url: entry.source.url || '',
       license: entry.source.license || '',
+      licenseUrl: entry.source.licenseUrl || '',
     } : null,
   };
 }
@@ -174,6 +184,9 @@ const categories = categoryOrder.map((name) => {
 const knownIds = new Set(recipes.map((recipe) => recipe.id));
 for (const id of Object.keys(photoManifest.recipes)) {
   if (!knownIds.has(id)) console.warn(`Photo manifest contains unknown recipe id: ${id}`);
+}
+for (const id of Object.keys(photoManifest.recipeFamilies)) {
+  if (!knownIds.has(id)) console.warn(`Photo manifest contains family assignment for unknown recipe id: ${id}`);
 }
 
 fs.mkdirSync(path.dirname(output), { recursive: true });

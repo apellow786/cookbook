@@ -17,6 +17,21 @@ The Obsidian vault remains the master source for recipe photos. Recipe Markdown 
   "categoryCovers": {
     "Appetizers": "recipe-33a8bf22-c186-47e3-99d8-be6a5b276c96"
   },
+  "families": {
+    "pancakes": {
+      "file": "Families/pancakes.jpg",
+      "alt": "A stack of golden pancakes",
+      "source": {
+        "creator": "Photographer name",
+        "url": "https://example.com/original-photo-page",
+        "license": "License name"
+      }
+    }
+  },
+  "recipeFamilies": {
+    "recipe-2ecdc0bc-cdb8-4d8b-95e2-261729bb5c55": "pancakes",
+    "recipe-61b3c6ed-d4d1-4794-b78f-6bf65c345fd7": "pancakes"
+  },
   "recipes": {
     "recipe-33a8bf22-c186-47e3-99d8-be6a5b276c96": {
       "file": "Recipes/recipe-33a8bf22-c186-47e3-99d8-be6a5b276c96.jpg",
@@ -33,10 +48,12 @@ The Obsidian vault remains the master source for recipe photos. Recipe Markdown 
 
 `alt` describes what is visible for people using screen readers. Source details preserve the photo's provenance even when attribution is optional.
 
+Use `families` and `recipeFamilies` when visually similar recipes can share one photo. A recipe-specific entry in `recipes` overrides its family assignment.
+
 ## Add or replace a photo
 
-1. Put the image in `Assets/Recipes` using the recipe ID as its filename.
-2. Add or update that recipe's entry in `photo-manifest.json`.
+1. Put an individual image in `Assets/Recipes` using the recipe ID as its filename, or put a shared image in `Assets/Families` using a descriptive family name.
+2. Add or update the corresponding `recipes` or `families` entry in `photo-manifest.json`. Assign shared photos under `recipeFamilies`.
 3. To use it on the home page, point the appropriate `categoryCovers` entry to that recipe ID.
 4. Run the website content sync and build.
 
