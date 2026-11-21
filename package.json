@@ -4,6 +4,9 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
+    "auto-publish": "node scripts/auto-publish.mjs",
+    "auto-publish:install": "node scripts/install-auto-publish.mjs",
+    "auto-publish:uninstall": "node scripts/install-auto-publish.mjs --uninstall",
     "sync": "node scripts/import-content.mjs",
     "validate": "node scripts/validate-content.mjs",
     "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev",
